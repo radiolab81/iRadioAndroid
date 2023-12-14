@@ -35,7 +35,7 @@ The iRadioAndroid, like all other iRadio ports, sees itself less as a ready-to-u
 #### Installation
 
 To compile iRadioAndroid you first need Google's Android Studio. https://developer.android.com/studio
-The currently current version 2023.1.1 Hedgehog is recommended by the developers. After downloading and installing the Android Studio, the iRadioAndroid is copied to the local projects directory.
+The current version 2023.1.1 Hedgehog is recommended by the developers. After downloading and installing the Android Studio, the iRadioAndroid is copied to the local projects directory.
 
 Calling
 
