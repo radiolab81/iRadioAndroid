@@ -88,4 +88,4 @@ The communication and all commands are specified on the one hand in the firmware
 
 Your own changes and extensions can be made freely and easily and are always welcome on your own radio.
 
-To start automatically the iRadioAndroid-App in your fully developed radio, set iRadioAndroid to the autostart of the Android os.
+To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android os.
