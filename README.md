@@ -17,6 +17,8 @@ Neben dem Medienplayer als Hintergrundprozess (iRadioPlayer) haben wir verschied
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
+Im Ordner "drawable" befinden sich alle für die als Beispiel hinzugefügten Skalensimulation genutzten Bildressourcen (PNGs mit Alphakanal). Änderungen und Hinzufügungen von Bilddateien sind analog der Beschreibung für iRadio-Skalensimulationen in Beitrag #127 hier https://radio-bastler.de/forum/showthread.php?tid=11484&pid=142892#pid142892 vorzunehmen.
+
 Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt diese Art der Bedienung.
 Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
 
