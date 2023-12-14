@@ -50,7 +50,9 @@ Ab diesem Moment wird das iRadioAndroid die selbst erstellte Senderliste verwend
 
 Diese Kommando richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
 
-Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner firmware, Beispielcode für die Arduino-Plattform mitgegeben. Um diesen Art der Bedienung zun Nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel.   Nachdem der Arduino programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen, erteilen Sie diese der der iRadioAndroid-App dauerhaft. Nach einem Neustart der App ist die Bedienung des iRadios nun auch von außen möglich.
+Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner firmware, Beispielcode für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel.  Nachdem der Arduino programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen, erteilen Sie diese der der iRadioAndroid-App dauerhaft. Nach einem Neustart der App ist die Bedienung des iRadios nun auch von außen möglich.
+
+Sollte in Ihrem fertig entwickeltem Radiogerät, iRadioAndroid nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
 
 
 
