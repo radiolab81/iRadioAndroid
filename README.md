@@ -30,8 +30,7 @@ Aufruf von
 im Terminal aus dem Projekteverzeichnis heraus.
 
 Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
-Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt. 
-Es wird aus Leistungsgründen empfohlen sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen!
+Direkt nach dem Compilieren deriRadio-Anwendung wird so diese auf dem Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche erleichtert. Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen! Skalensimulationen müssen in der Regel sowieso an die Auflösung und Geometrie des genutzen Endgerätes angepasst werden!
 
 Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
 Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
@@ -41,20 +40,19 @@ Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hi
 `adb push playlist.m3u /sdcard/Download`
 
 
-Ab diesem Moment wird das iRadioAndroid die selbst erstellte Senderliste verwenden. 
+Ab diesem Moment wird das iRadioAndroid bei jedem weiterem Start der App die selbst erstellte Senderliste verwenden. 
 
-
-Über diesen Weg kann zukünftig das iRadioAndroid auch für neue WiFi-Zugängen konfiguriert werden, falls Ihr zukünfiges Radiogehäuse keinen direkten Zugang zu einem Touch-Screen mehr ermöglicht:
+Über diesen Weg kann zukünftig das iRadioAndroid auch für neue WiFi-Zugängen konfiguriert werden, falls Ihr zukünfiges Radiogehäuse keinen direkten Zugang zu einem System-Touch-Screen mehr ermöglicht:
 
 
 `adb shell cmd -w wifi connect-network "Home" wpa2 "qwerty"`
 
 
-Diese Kommando richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
+Diese Beispiel richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
 
-Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner firmware, Beispielcode für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel.  Nachdem der Arduino programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen, erteilen Sie diese der der iRadioAndroid-App dauerhaft. Nach einem Neustart der App ist die Bedienung des iRadios nun auch von außen möglich.
+Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner <firmware> Beispielcode für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel. Nachdem der Arduino-Mikrocontroller programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen. Erteilen Sie diese Berechtigung der iRadioAndroid-App dauerhaft. Nach einem Neustart der App (bei vorher angeschlossener Peripherie) ist die Bedienung des iRadios nun auch von außen möglich.
 
-Sollte in Ihrem fertig entwickeltem Radiogerät, iRadioAndroid nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
+Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
 
 
 
