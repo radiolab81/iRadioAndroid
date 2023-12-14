@@ -26,7 +26,7 @@ Zentraler Startpunkt für die verschiedenen Dienste des iRadioAndroid ist die Da
 Hier werden, wie in der Datei rc.local beim iRadio für Raspberry, sämtliche Komponenten (Hintergrunddienste, UI wie Skalensimulation) des iRadioAndroid ausgewählt und gestartet:
 
 Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützen diese Art der Bedienung.
-Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
+Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigene Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
 
 #### Installation
 
