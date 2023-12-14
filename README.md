@@ -4,28 +4,30 @@ Ein experimenteller Softwarebaukasten für den Aufbau neuer Radios oder dem Umba
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
 
-#### unterstützte Systeme
+#### Unterstützte Systeme
 
-Zur Zeit werden Android-basierten Systeme (Smartphones und Tablet PCs) ab API Level 17 (A4.2 Jelly Bean) bis Android 12 getestet und unterstützt.
-Eine Anwendung auf neueren Geräten scheint prizipiell möglich zu sein, kann jedoch in Zukunft wegen Änderungen an den APIs durch Google bestimmten Einschränkungen unterliegen.
+Zur Zeit werden Android-basierte Systeme (Smartphones und Tablet PCs) ab API Level 17 (A4.2 Jelly Bean) bis Android 12 getestet und unterstützt.
+Eine Nutzung auf neueren Geräten scheint prinzipiell möglich zu sein, kann jedoch in Zukunft wegen API-Änderungen durch Google bestimmten Einschränkungen unterliegen.
 Die Geräte müssen in der Regel nicht gerootet sein!
 
 #### Systemdesign
 
 Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
-Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von Außen liegt im Ordner "firmware" vor. Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt dies. Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen.
+Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von außen liegt im Ordner "firmware". Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt diese Art der Bedienung.
+Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
 
 #### Installation
 
-Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google benötigt. https://developer.android.com/studio  Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern empfohlen. Nach dem Download und der Installation des Android Studios wird das iRadioAndroid in das Projektverzeichnis kopiert. 
+Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google benötigt. https://developer.android.com/studio  
+Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern empfohlen. Nach dem Download und der Installation des Android Studios wird das iRadioAndroid in das lokale Projekteverzeichnis kopiert. 
 
-Aufrufen von
+Aufruf von
 
 
 `git clone https://github.com/BM45/iRadioAndroid/`
 
 
-im Terminal aus dem Projektverzeichnis heraus.
+im Terminal aus dem Projekteverzeichnis heraus.
 
 Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
 Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt. 
