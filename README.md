@@ -10,6 +10,11 @@ Zur Zeit werden Android-basierten Systeme (Smartphones und Tablet PCs) ab API Le
 Eine Anwendung auf neueren Geräten scheint prizipiell möglich zu sein, kann jedoch in Zukunft wegen Änderungen an den APIs durch Google bestimmten Einschränkungen unterliegen.
 Die Geräte müssen in der Regel nicht gerootet sein!
 
+#### Systemdesign
+
+Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
+Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von Außen liegt im Ordner "firmware" vor.
+
 
 
 
