@@ -53,9 +53,12 @@ Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht a
 
 ![skalensim_cass](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
 
+
 Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
 Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
-Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden  (vergleichbar mit SSH-Zugang des iRadio auf Raspberry). Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem PC-Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
+Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. 
+Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden (vergleichbar mit SSH-Zugang des iRadio auf Raspberry). 
+Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem PC-Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
 
 
 `adb push playlist.m3u /sdcard/Download`
