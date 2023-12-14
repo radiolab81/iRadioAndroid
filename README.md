@@ -19,7 +19,13 @@ Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visu
 
 Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google benötigt. https://developer.android.com/studio  Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern empfohlen. Nach dem Download und der Installation des Android Studios wird das iRadioAndroid in das Projektverzeichnis kopiert. 
 
-Aufrufen von git clone https://github.com/BM45/iRadioAndroid/ im Terminal aus dem Projektverzeichnis heraus.
+Aufrufen von
+
+
+`git clone https://github.com/BM45/iRadioAndroid/`
+
+
+im Terminal aus dem Projektverzeichnis heraus.
 
 Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
 Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt. 
@@ -29,9 +35,20 @@ Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne S
 Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
 Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden. Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
 
-adb push playlist.m3u /sdcard/Download
+
+`adb push playlist.m3u /sdcard/Download`
+
 
 Ab diesem Moment wird das iRadioAndroid die selbst erstellte Senderliste verwenden. 
+
+
+Über diesen Weg kann zukünftig das iRadioAndroid auch für neue WiFi-Zugängen konfiguriert werden, falls Ihr zukünfiges Radiogehäuse keinen direkten Zugang zu einem Touch-Screen mehr ermöglicht:
+
+
+`adb shell cmd -w wifi connect-network "Home" wpa2 "qwerty"`
+
+
+Diese Kommando richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
 
 Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner firmware, Beispielcode für die Arduino-Plattform mitgegeben. Um diesen Art der Bedienung zun Nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel.   Nachdem der Arduino programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen, erteilen Sie diese der der iRadioAndroid-App dauerhaft. Nach einem Neustart der App ist die Bedienung des iRadios nun auch von außen möglich.
 
