@@ -33,20 +33,28 @@ Aufruf von
 
 im Terminal aus dem Projekteverzeichnis heraus.
 
-Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
-Direkt nach dem Compilieren deriRadio-Anwendung wird so diese auf dem Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche erleichtert. Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen! Skalensimulationen müssen in der Regel sowieso an die Auflösung und Geometrie des genutzen Endgerätes angepasst werden!
+Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. howto: https://developer.android.com/studio/debug/dev-options#enable
+
+Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen).  howto: https://developer.android.com/studio/run/device#connect
+
+Direkt nach dem Compilieren der iRadio-Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche erleichtert.
+
+![logcat](https://developer.android.com/static/studio/images/debug/logcat_dolphin_2x.png)
+
+Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen! Skalensimulationen müssen in der Regel sowieso an die Auflösung und Geometrie des genutzen Endgerätes angepasst werden!
 
 Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
 Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
-Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden. Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
+Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden  (vergleichbar mit SSH-Zugang des iRadio auf Raspberry). Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem PC-Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
 
 
 `adb push playlist.m3u /sdcard/Download`
 
 
-Ab diesem Moment wird das iRadioAndroid bei jedem weiterem Start der App die selbst erstellte Senderliste verwenden. 
+Mit dem Befehl adb shell kann man sich am Telefon einloggen und mit (Linux-)Befehlen wie ls, cd, cp, mv, reboot ... im Dateisystem des Telefons navigieren und kontrollieren ob die Senderliste vorhanden ist.
+Ab diesem Moment wird iRadioAndroid bei jedem weiterem Start der App die selbst erstellte Senderliste verwenden. 
 
-Über diesen Weg kann zukünftig das iRadioAndroid auch für neue WiFi-Zugängen konfiguriert werden, falls Ihr zukünfiges Radiogehäuse keinen direkten Zugang zu einem System-Touch-Screen mehr ermöglicht:
+Über den Weg der ADB-Shell kann das iRadioAndroid zukünftig auch für neue WiFi-Zugänge konfiguriert werden, falls Ihr Radiogehäuse keinen direkten Zugang zu einem System-Touch-Screen mehr ermöglicht:
 
 
 `adb shell cmd -w wifi connect-network "Home" wpa2 "qwerty"`
