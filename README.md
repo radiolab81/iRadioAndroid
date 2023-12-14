@@ -13,7 +13,11 @@ Die Geräte müssen in der Regel nicht gerootet sein!
 #### Systemdesign
 
 Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
-Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von außen liegt im Ordner "firmware". Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt diese Art der Bedienung.
+Neben dem Medienplayer als Hintergrundprozess (iRadioPlayer) haben wir verschiedene "Prozesse" für die Visualisierung (displayd...) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von außen liegt im Ordner "firmware". 
+
+![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
+
+Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt diese Art der Bedienung.
 Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
 
 #### Installation
