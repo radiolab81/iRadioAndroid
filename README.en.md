@@ -1,89 +1,91 @@
 # iRadioAndroid
 
-Ein experimenteller Softwarebaukasten für den Aufbau neuer Radios oder dem Umbau alter Radios zu einem Internetradio auf Android Basis.
+An experimental software kit for building new radios or converting old radios into an Android-based internet radio.
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
 
-#### Unterstützte Systeme
+#### Supported systems
 
-Zur Zeit werden Android-basierte Systeme (Smartphones und Tablet PCs) ab API Level 17 (A4.2 Jelly Bean) bis Android 12 getestet und unterstützt.
-Eine Nutzung auf neueren Geräten scheint prinzipiell möglich zu sein, kann jedoch in Zukunft wegen API-Änderungen durch Google bestimmten Einschränkungen unterliegen.
-Die Geräte müssen in der Regel nicht gerootet sein!
+Android-based systems (smartphones and tablet PCs) from API Level 17 (A4.2 Jelly Bean) to Android 12 are currently tested and supported.
+Usage on newer devices seems to be possible in principle, but may be subject to certain restrictions in the future due to API changes by Google.
+The devices usually do not need to be rooted!
 
-#### Systemdesign
+#### System design
 
-Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
-Neben dem Medienplayer als Hintergrundprozess (iRadioPlayer) haben wir verschiedene "Prozesse" für die Visualisierung (displayd...) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von außen liegt im Ordner "firmware". 
+The design of the iRadioAndroid is based on the modular principle of the iRadio for Raspberry (https://github.com/BM45/iRadio) and the iRadioMini for ESP32 (https://github.com/BM45/iRadioMini).
+In addition to the media player as a background process (iRadioPlayer), we have various "processes" for visualization (displayd...) and controls via GPIOs (gpiod) which are connected via an OTG USB serial port. Sample firmware for controlling the iRadioAndroid from outside is in the “firmware” folder.
+
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
-Im Ordner "drawable" befinden sich alle genutzten Bildressourcen (PNGs mit Alphakanal), für die als Beispiel hinzugefügten Skalensimulation. Änderungen und Hinzufügungen von Bilddateien sind analog der Beschreibung für iRadio-Skalensimulationen in Beitrag #127 hier https://radio-bastler.de/forum/showthread.php?tid=11484&pid=142892#pid142892 vorzunehmen.
+The "drawable" folder contains all used image resources (PNGs with alpha channel) for the radio scale simulation added as an example. Changes and additions to image files should be made analogously to the description for iRadio scale simulations in post #127 here https://radio-bastler.de/forum/showthread.php?tid=11484&pid=142892#pid142892.
 
-Zentraler Startpunkt für die verschiedenen Dienste des iRadioAndroid ist die Datei iRadioStartup.java:
+The central starting point for the various iRadioAndroid services is the iRadioStartup.java file:
+
 
 ![startup](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/startup.jpg)
 
-Hier werden, wie in der Datei rc.local beim iRadio für Raspberry, sämtliche Komponenten (Hintergrunddienste, UI wie Skalensimulation) des iRadioAndroid ausgewählt und gestartet:
+Here, as in the rc.local file for the iRadio for Raspberry, all components (background services, UI such as radio scale simulation) of the iRadioAndroid are selected and started:
 
-Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese Möglichkeit nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display des Systems bedient werden, die mitgelieferten displayd-Beispielcodes unterstützen diese Art der Bedienung.
-Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigene Ideen und Entwicklungen. Die Zielgruppe ist der Technik- und PC-affine Radiobastler!
+Even if controlling the iRadio via buttons and rotary encoders simplifies integration into old radios, this option is only optional. Like any other app, the iRadioAndroid can be operated directly via the system's touch display, the included displayd example codes support this type of operation.
+The iRadioAndroid, like all other iRadio ports, sees itself less as a ready-to-use solution, but rather as a guideline for your own ideas and developments. The target group is the technology and PC-savvy radio hobbyist!
+
+
 
 #### Installation
 
-Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google benötigt. https://developer.android.com/studio  
-Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern empfohlen. Nach dem Download und der Installation des Android Studios wird das iRadioAndroid in das lokale Projekteverzeichnis kopiert. 
+To compile iRadioAndroid you first need Google's Android Studio. https://developer.android.com/studio
+The currently current version 2023.1.1 Hedgehog is recommended by the developers. After downloading and installing the Android Studio, the iRadioAndroid is copied to the local projects directory.
 
-Aufruf von
+Calling
 
 
 `git clone https://github.com/BM45/iRadioAndroid/`
 
 
-im Terminal aus dem Projekteverzeichnis heraus.
+from terminal / projects-folder will do the job.
 
-Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. howto: https://developer.android.com/studio/debug/dev-options#enable
+The future Android radio device must now be switched to developer mode. howto: https://developer.android.com/studio/debug/dev-options#enable
 
-Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen).  howto: https://developer.android.com/studio/run/device#connect
+Activate USB debugging (if necessary debugging via WiFi) and then connecting (pairing) to the development PC and the Android Studio. howto: https://developer.android.com/studio/run/device#connect
 
-Direkt nach dem Compilieren der iRadio-Anwendung wird diese auch auf dem am PC angeschlossenen Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche bei Problemen erleichtert.
-
+Immediately after compiling the iRadio application, it is also installed on the Android device connected to the PC. In addition, all debug output from the Android device is displayed in Android Studio (Logcat display), which makes later monitoring or troubleshooting easier in the event of problems.
 ![logcat](https://developer.android.com/static/studio/images/debug/logcat_dolphin_2x.png)
 
-Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen! Skalensimulationen müssen in der Regel sowieso an die Auflösung und Geometrie des genutzen Endgerätes angepasst werden!
+For performance reasons, it is recommended that all development work not be carried out on the Android Emulator, but directly with a real smartphone/tablet! Scale simulations usually have to be adapted to the resolution and geometry of the device used anyway!
 
 ![skalensim_cass](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
 
 
-Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
-Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
-Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. 
-Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden (vergleichbar mit SSH-Zugang des iRadio auf Raspberry). 
-Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem PC-Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
+Important: After the first start of iRadioAndroid, a small internal station list is still used!
+First, access to the device memory must be granted to the iRadioAndroid app via Android settings/apps. This makes it possible to use your own station list (playlist.m3u), analogous to the iRadio/iRadioMini.
+By default, this channel list is stored in the download folder of the Android device.
+An existing playlist.m3u can be copied into the device from the PC using the ADB shell (comparable to SSH access from the iRadio on Raspberry).
+If the Android device is paired with the PC via USB cable or WiFi, you can initiate a transfer to the smartphone/tablet from the PC folder where the channel list is stored as shown:
 
 
 `adb push playlist.m3u /sdcard/Download`
 
 
-Mit dem Befehl adb shell kann man sich am Telefon einloggen und mit (Linux-)Befehlen wie ls, cd, cp, mv, reboot ... im Dateisystem des Telefons navigieren und kontrollieren ob die Senderliste vorhanden ist.
-Ab diesem Moment wird iRadioAndroid bei jedem weiterem Start der App die selbst erstellte Senderliste verwenden. 
+With the adb shell command you can log into the phone and use (Linux) commands such as ls, cd, cp, mv, reboot ... to navigate in the phone's file system and check whether the channel list is available.
+From this moment on, iRadioAndroid will use the self-created station list every time the app is started.
 
-Über den Weg der ADB-Shell kann das iRadioAndroid zukünftig auch für neue WiFi-Zugänge konfiguriert werden, falls Ihr Radiogehäuse keinen direkten Zugang zu einem System-Touch-Screen mehr ermöglicht:
+In the future, the iRadioAndroid can also be configured for new WiFi access via the ADB shell if your radio housing no longer allows direct access to a system touch screen:
 
 
 `adb shell cmd -w wifi connect-network "Home" wpa2 "qwerty"`
 
 
-Dieses Beispiel richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
+This example sets up the Android device for the WiFi network "Home" with the password "qwerty".
 
-Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner "firmware" Beispielcode https://github.com/BM45/iRadioAndroid/blob/main/firmware/arduino_atmega/firmware.ino für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel. Nachdem der Arduino-Mikrocontroller programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen. Erteilen Sie diese Berechtigung der iRadioAndroid-App dauerhaft. Nach einem Neustart der App (bei vorher angeschlossener Peripherie) ist die Bedienung des iRadios nun auch von außen möglich.
+For controlling iRadioAndroid via rotary pulse encoder and buttons, example code https://github.com/BM45/iRadioAndroid/blob/main/firmware/arduino_atmega/firmware.ino for the Arduino platform is included in the "firmware" folder. To use this type of operation, in addition to an Arduino itself, you also need the Arduino IDE https://www.arduino.cc/en/software, a USB programming cable and a USB OTG cable. After the Arduino microcontroller has been programmed and buttons and rotary encoders are connected according to the source code, connect the Arduino to the Android device using an OTG USB cable/hub. Android will ask you for USB port permission. Permanently grant this permission to the iRadioAndroid app. After restarting the app (with the peripherals previously connected), the iRadio can now also be operated from the outside.
 
-Die Kommunikation und alle Befehle werden auf der einen Seite in der Firmware des extenern Prozessors, der die physikalische GPIO Schnittstelle bereitstellt, und auf der anderen Seite im Beispielcode für den gpiod festgelegt.
+The communication and all commands are specified on the one hand in the firmware of the external processor that provides the physical GPIO interface and on the other hand in the example code for the gpiod.
 
 
 ![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
 
-Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. 
 
+Your own changes and extensions can be made freely and easily and are always welcome on your own radio.
 
-Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
-
+To start automatically the iRadioAndroid-App in your fully developed radio, set iRadioAndroid to the autostart of the Android os.
