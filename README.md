@@ -73,7 +73,7 @@ Ab diesem Moment wird iRadioAndroid bei jedem weiterem Start der App die selbst 
 `adb shell cmd -w wifi connect-network "Home" wpa2 "qwerty"`
 
 
-Diese Beispiel richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
+Dieses Beispiel richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
 
 Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner "firmware" Beispielcode https://github.com/BM45/iRadioAndroid/blob/main/firmware/arduino_atmega/firmware.ino für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel. Nachdem der Arduino-Mikrocontroller programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen. Erteilen Sie diese Berechtigung der iRadioAndroid-App dauerhaft. Nach einem Neustart der App (bei vorher angeschlossener Peripherie) ist die Bedienung des iRadios nun auch von außen möglich.
 
