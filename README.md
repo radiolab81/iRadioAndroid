@@ -13,7 +13,30 @@ Die Geräte müssen in der Regel nicht gerootet sein!
 #### Systemdesign
 
 Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
-Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von Außen liegt im Ordner "firmware" vor. Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt dies.
+Neben dem Medienplayer als Hintergrundprozess haben wir "Prozesse" für die Visualisierung (displayd) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von Außen liegt im Ordner "firmware" vor. Auch wenn die Ansteuerung des iRadios über Tasten und Drehimpulsgeber die Integration in alte Radios vereinfacht, so ist diese nur optional. Das iRadioAndroid kann wie jede andere App auch direkt über das Touch-Display bedient werden, die mitgelieferten displayd-Beispielcodes unterstützt dies. Auch das iRadioAndroid versteht sich, wie alle anderen iRadio-Portierungen bisher auch, weniger als Fertiggericht, sondern als Richtschnur für eigenen Ideen und Entwicklungen.
+
+#### Installation
+
+Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google benötigt. https://developer.android.com/studio  Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern empfohlen. Nach dem Download und der Installation des Android Studios wird das iRadioAndroid in das Projektverzeichnis kopiert. 
+
+Aufrufen von git clone https://github.com/BM45/iRadioAndroid/ im Terminal aus dem Projektverzeichnis heraus.
+
+Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
+Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben (Logcat-Anzeige) vom Androidgerät im Android Studio angezeigt. 
+Es wird aus Leistungsgründen empfohlen sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen!
+
+Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
+Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff auf den Gerätespeicher zu gewähren. Damit ist es möglich eine eigene Senderliste (playlist.m3u), analog dem iRadio/iRadioMini zu nutzen.
+Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden. Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
+
+adb push playlist.m3u /sdcard/Download
+
+
+
+
+
+
+
 
 
 
