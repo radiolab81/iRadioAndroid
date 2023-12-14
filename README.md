@@ -75,7 +75,15 @@ Ab diesem Moment wird iRadioAndroid bei jedem weiterem Start der App die selbst 
 
 Diese Beispiel richtet das Androidgerät für das WiFi-Netz "Home" mit dem Passwort "qwerty" ein.
 
-Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner "firmware" Beispielcode für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel. Nachdem der Arduino-Mikrocontroller programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen. Erteilen Sie diese Berechtigung der iRadioAndroid-App dauerhaft. Nach einem Neustart der App (bei vorher angeschlossener Peripherie) ist die Bedienung des iRadios nun auch von außen möglich.
+Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner "firmware" Beispielcode https://github.com/BM45/iRadioAndroid/blob/main/firmware/arduino_atmega/firmware.ino für die Arduino-Plattform mitgegeben. Um diese Art der Bedienung zu nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel. Nachdem der Arduino-Mikrocontroller programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen. Erteilen Sie diese Berechtigung der iRadioAndroid-App dauerhaft. Nach einem Neustart der App (bei vorher angeschlossener Peripherie) ist die Bedienung des iRadios nun auch von außen möglich.
+
+Die Kommunikation und alle Befehle werden auf der einen Seite in der Firmware des extenern Prozessors, der die physikalische GPIO Schnittstelle bereitstellt, und auf der anderen Seite im Beispielcode für den gpiod festgelegt.
+
+
+![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
+
+Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. 
+
 
 Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
 
