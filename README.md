@@ -21,6 +21,7 @@ Im Ordner "drawable" befinden sich alle für die als Beispiel hinzugefügten Ska
 
 Zentraler Startpunkt für die verschiedenen Dienste des iRadioAndroid ist die Datei iRadioStartup.java:
 
+![startup](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/startup.jpg)
 
 Hier werden, wie in der Datei rc.local beim iRadio für Raspberry, sämtliche Komponenten (Hintergrunddienste, UI wie Skalensimulation) des iRadioAndroid ausgewählt und gestartet:
 
