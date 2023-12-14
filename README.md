@@ -22,7 +22,7 @@ Zum Compilieren des iRadioAndroid wird zunächst das Android Studio von Google b
 Aufrufen von git clone https://github.com/BM45/iRadioAndroid/ im Terminal aus dem Projektverzeichnis heraus.
 
 Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) geschaltet werden. Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen). 
-Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben (Logcat-Anzeige) vom Androidgerät im Android Studio angezeigt. 
+Direkt nach dem Compilieren der Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt. 
 Es wird aus Leistungsgründen empfohlen sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen!
 
 Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
@@ -30,6 +30,13 @@ Zunächst ist über Android-Einstellungen/Apps der iRadioAndroid-App der Zugriff
 Standardmäßig wird diese Senderliste im Download-Ordner des Androidgerätes hinterlegt. Eine vorhandene playlist.m3u kann mit Hilfe der ADB-Shell vom PC aus in das Gerät kopiert werden. Wenn das Androidgerät mit dem PC über USB-Kabel oder WiFi gekoppelt ist, kann man aus dem Ordner wo die Senderliste hinterlegt ist, einen Transfer zum Smartphone/Tablet so einleiten:
 
 adb push playlist.m3u /sdcard/Download
+
+Ab diesem Moment wird das iRadioAndroid die selbst erstellte Senderliste verwenden. 
+
+Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im Ordner firmware, Beispielcode für die Arduino-Plattform mitgegeben. Um diesen Art der Bedienung zun Nutzen, benötigen Sie neben einen Arduino selbst, noch die Arduino-IDE https://www.arduino.cc/en/software , ein USB-Programmierkabel und ein USB-OTG-Kabel.   Nachdem der Arduino programmiert wurde und Taster, Drehimpulsgeber entsprechend des Quellcodes angeschlossen sind, verbinden Sie den Arduino noch über ein OTG-USB-Kabel/Hub mit dem Androidgerät. Android wird Sie nach der Berechtigung für den USB-Port fragen, erteilen Sie diese der der iRadioAndroid-App dauerhaft. Nach einem Neustart der App ist die Bedienung des iRadios nun auch von außen möglich.
+
+
+
 
 
 
