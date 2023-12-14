@@ -45,7 +45,7 @@ Das zukünftige Androidgerät muss nun in den Entwicklermodus (Developer Mode) g
 
 Das USB Debugging (ggf. Debugging über WiFi) aktivieren und anschließend mit dem Entwicklungs-PC und dem Android Studio verbinden (pairen).  howto: https://developer.android.com/studio/run/device#connect
 
-Direkt nach dem Compilieren der iRadio-Anwendung wird diese so auf dem Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche erleichtert.
+Direkt nach dem Compilieren der iRadio-Anwendung wird diese auch auf dem am PC angeschlossenen Androidgerät installiert. Zusätzlich werden auch alle Debugausgaben vom Androidgerät im Android Studio (Logcat-Anzeige) angezeigt, was ein späteres Monitoring oder Fehlersuche bei Problemen erleichtert.
 
 ![logcat](https://developer.android.com/static/studio/images/debug/logcat_dolphin_2x.png)
 
