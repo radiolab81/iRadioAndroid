@@ -107,7 +107,7 @@ public class gpiodSerialOTG extends Service implements SerialInputOutputManager.
             Log.i(TAG, "Data received : " + dataUTF8 + "size of " + dataUTF8.length()/*data.toString()*/);
 
             //*************************************************************************************************
-            //*** hier die Umsetzung der empfangenen Daten auf die Befehle fuer (zum Beispie) iRadioPlayer ,...
+            //*** hier die Umsetzung der empfangenen Daten auf die Befehle fuer (zum Beispiel) iRadioPlayer ,...
             //*************************************************************************************************
             if (iRadioPlayerService != null) {
                 if (dataUTF8.contains("PNX")) {
