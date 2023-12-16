@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="100"
-    android:background="@color/white"
+    android:background="@drawable/skale"
     android:fitsSystemWindows="true"
     android:foreground="@drawable/skale"
     android:visibility="visible"
