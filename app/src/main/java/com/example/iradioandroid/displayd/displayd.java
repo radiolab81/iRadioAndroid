@@ -81,7 +81,10 @@ public class displayd extends Activity {
 
                         if (delta < 0) {
                             while (imageZeiger.getX() != (ZEIGERANSCHLAG_LINKS + iRadioPlayerService.getActualChannelNo() * SENDERABSTAND)) {
-                                imageZeiger.setX(imageZeiger.getX() + 1);
+                                runOnUiThread(new Runnable() { @Override
+                                public void run() {
+                                    imageZeiger.setX(imageZeiger.getX() + 1);
+                                } });
                                 if ((imageZeiger.getX() < ZEIGERANSCHLAG_LINKS) || (imageZeiger.getX() > ZEIGERANSCHLAG_RECHTS)) {
                                     Log.w(TAG, "Limits ZEIGERANSCHLAG_LINKS/RECHTS erreicht!");
                                     break;
@@ -96,7 +99,10 @@ public class displayd extends Activity {
 
                         if (delta > 0) {
                             while (imageZeiger.getX() != (ZEIGERANSCHLAG_LINKS + iRadioPlayerService.getActualChannelNo() * SENDERABSTAND)) {
-                                imageZeiger.setX(imageZeiger.getX() - 1);
+                                runOnUiThread(new Runnable() { @Override
+                                public void run() {
+                                    imageZeiger.setX(imageZeiger.getX() - 1);
+                                } });
                                 if ((imageZeiger.getX() < ZEIGERANSCHLAG_LINKS) || (imageZeiger.getX() > ZEIGERANSCHLAG_RECHTS)) {
                                     Log.w(TAG, "Limits ZEIGERANSCHLAG_LINKS/RECHTS erreicht!");
                                     break;
