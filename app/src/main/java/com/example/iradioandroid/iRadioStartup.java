@@ -35,6 +35,7 @@ public class iRadioStartup extends AppCompatActivity {
         // start displayd as Activity
         Intent displayd_intent = new Intent(this, displayd.class);
         //Intent displayd_intent = new Intent(this, displaydCassette.class);
+        //Intent displayd_intent = new Intent(this, displaydRoundScale.class);
         startActivity(displayd_intent);
 
         // start gpiod service
