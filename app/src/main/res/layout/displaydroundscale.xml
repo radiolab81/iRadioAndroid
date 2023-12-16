@@ -32,7 +32,7 @@
         android:id="@+id/imageScale_r"
         android:layout_width="403dp"
         android:layout_height="410dp"
-        android:background="@color/black"
+        android:background="@drawable/skale_r"
         android:foreground="@drawable/skale_r"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/skale_r" 
+        app:srcCompat="@drawable/skale_r"
         tools:visibility="visible" />
 
     <ImageView
