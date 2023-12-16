@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iradioandroid.displayd.displayd;
 import com.example.iradioandroid.displayd.displaydCassette;
+import com.example.iradioandroid.displayd.displaydRoundScale;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
 
