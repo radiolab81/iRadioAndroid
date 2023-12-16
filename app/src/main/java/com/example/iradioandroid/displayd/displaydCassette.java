@@ -66,8 +66,11 @@ public class displaydCassette extends Activity {
             float rot = 0;
             public void run() {
                 //perform your action here
-                imageSpule_links.setRotation(rot);
-                imageSpule_rechts.setRotation(rot);
+                runOnUiThread(new Runnable() { @Override
+                public void run() {
+                       imageSpule_links.setRotation(rot);
+                       imageSpule_rechts.setRotation(rot);
+                } });
                 rot = rot + 1;
                 if (rot == 359)
                     rot = 0;
