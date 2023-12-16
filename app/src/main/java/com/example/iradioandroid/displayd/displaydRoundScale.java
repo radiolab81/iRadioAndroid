@@ -67,7 +67,8 @@ public class displaydRoundScale extends Activity {
                 if (mBound) {
                     int SENDERABSTAND = (ZEIGERANSCHLAG_RECHTS-ZEIGERANSCHLAG_LINKS) / (iRadioPlayerService.getNumberOfChannelsInPlaylist()-1);
                     nowChNum = iRadioPlayerService.getActualChannelNo();
-                    imageZeiger.setRotation(rotationswinkel);
+                    runOnUiThread(new Runnable() { @Override
+                    public void run() { imageZeiger.setRotation(rotationswinkel); } });
 
                     // program switched? move dial
                     if (nowChNum != oldChNum) {
@@ -80,7 +81,8 @@ public class displaydRoundScale extends Activity {
                                 rotationswinkel++;
                             }
 
-                            imageZeiger.setRotation(rotationswinkel);
+                            runOnUiThread(new Runnable() { @Override
+                            public void run() { imageZeiger.setRotation(rotationswinkel); } });
 
                             try {
                                 Thread.sleep(20);
