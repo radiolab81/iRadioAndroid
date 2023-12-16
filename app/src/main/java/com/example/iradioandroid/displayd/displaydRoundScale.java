@@ -37,7 +37,7 @@ public class displaydRoundScale extends Activity {
         // erzwinge Querformat
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        // Spulen + manuelle Positionierung [Settings im UI-Builder werden überschrieben] je nach Displaygröße/Auflösung
+        // Zeiger fuer Rundscale
         ImageView imageZeiger = (ImageView) findViewById(R.id.imageZeiger_r);
         imageZeiger.bringToFront();
 
