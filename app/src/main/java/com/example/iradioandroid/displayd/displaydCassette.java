@@ -37,8 +37,8 @@ public class displaydCassette extends Activity {
         // Spulen + manuelle Positionierung [Settings im UI-Builder werden überschrieben] je nach Displaygröße/Auflösung
         ImageView imageSpule_links = (ImageView) findViewById(R.id.imageSpule);
         ImageView imageSpule_rechts = (ImageView) findViewById(R.id.imageSpule2);
-        imageSpule_links.setX(305); imageSpule_links.setY(235);
-        imageSpule_rechts.setX(832); imageSpule_rechts.setY(235);
+        imageSpule_links.setX(345); imageSpule_links.setY(235);
+        imageSpule_rechts.setX(790); imageSpule_rechts.setY(235);
 
         // "unsichtbare" Buttons für Playersteuerung am Display
         Button button_nextPrg = (Button) findViewById(R.id.btn_nextPrg);
