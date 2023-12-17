@@ -22,7 +22,6 @@ import java.util.TimerTask;
 
 public class displayd extends Activity {
     private static final String TAG = "displayd";
-
     private final int ZEIGERANSCHLAG_LINKS = 160;
     private final int ZEIGERANSCHLAG_RECHTS = 1150;
 
@@ -80,9 +79,11 @@ public class displayd extends Activity {
                         delta = oldDialPos - toDialPos;
 
                         if (delta < 0) {
-                            while (imageZeiger.getX() != (ZEIGERANSCHLAG_LINKS + iRadioPlayerService.getActualChannelNo() * SENDERABSTAND)) {
-                                imageZeiger.setX(imageZeiger.getX() + 1);
-                                if ((imageZeiger.getX() < ZEIGERANSCHLAG_LINKS) || (imageZeiger.getX() > ZEIGERANSCHLAG_RECHTS)) {
+                            while (oldDialPos != toDialPos) {
+                                oldDialPos++;
+                                runOnUiThread(new Runnable() { @Override public void run() {    imageZeiger.setX(oldDialPos); } });
+
+                                if ((oldDialPos < ZEIGERANSCHLAG_LINKS) || (oldDialPos > ZEIGERANSCHLAG_RECHTS)) {
                                     Log.w(TAG, "Limits ZEIGERANSCHLAG_LINKS/RECHTS erreicht!");
                                     break;
                                 }
@@ -95,9 +96,10 @@ public class displayd extends Activity {
                         }
 
                         if (delta > 0) {
-                            while (imageZeiger.getX() != (ZEIGERANSCHLAG_LINKS + iRadioPlayerService.getActualChannelNo() * SENDERABSTAND)) {
-                                imageZeiger.setX(imageZeiger.getX() - 1);
-                                if ((imageZeiger.getX() < ZEIGERANSCHLAG_LINKS) || (imageZeiger.getX() > ZEIGERANSCHLAG_RECHTS)) {
+                            while (oldDialPos != toDialPos) {
+                                oldDialPos--;
+                                runOnUiThread(new Runnable() { @Override public void run() {    imageZeiger.setX(oldDialPos); } });
+                                if ((oldDialPos < ZEIGERANSCHLAG_LINKS) || (oldDialPos > ZEIGERANSCHLAG_RECHTS)) {
                                     Log.w(TAG, "Limits ZEIGERANSCHLAG_LINKS/RECHTS erreicht!");
                                     break;
                                 }
