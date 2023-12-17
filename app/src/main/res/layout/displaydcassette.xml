@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="100"
-    android:background="@drawable/cassette"
     android:fitsSystemWindows="true"
-    android:foreground="@drawable/cassette"
+    android:scaleX="1.2"
     android:visibility="visible"
     tools:context=".displayd.displaydCassette"
     tools:visibility="visible">
@@ -26,8 +25,8 @@
         android:layout_height="72dp"
         android:foreground="@drawable/spule"
         android:keepScreenOn="true"
+        android:src="@drawable/spule"
         android:visibility="visible"
-        app:srcCompat="@drawable/spule"
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="150dp"
         tools:visibility="visible" />
@@ -51,5 +50,17 @@
         android:visibility="visible"
         tools:layout_editor_absoluteX="480dp"
         tools:layout_editor_absoluteY="150dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cassette"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_prevPrg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
