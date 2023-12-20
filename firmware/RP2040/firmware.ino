@@ -1,10 +1,10 @@
 // switches for next & prev channel
-#define PIN_TASTER_PROGRAM_NEXT  2    // this is GPIO No not Pin No, see Pinout of your uC Board first !
-#define PIN_TASTER_PROGRAM_PREV  3    // this is GPIO No not Pin No, see Pinout of your uC Board first !
+#define PIN_TASTER_PROGRAM_NEXT  2    // this is GPIO# not Pin#, see Pinout of your uC Board first !
+#define PIN_TASTER_PROGRAM_PREV  3    // this is GPIO# not Pin#, see Pinout of your uC Board first !
 
 // rotary encoder for volume setting
-#define PIN_ENCODER_VOL_CLK    5     // this is GPIO No not Pin No, see Pinout of your uC Board first !
-#define PIN_ENCODER_VOL_DT     4     // this is GPIO No not Pin No, see Pinout of your uC Board first !
+#define PIN_ENCODER_VOL_CLK    5     // this is GPIO# not Pin#, see Pinout of your uC Board first !
+#define PIN_ENCODER_VOL_DT     4     // this is GPIO# not Pin#, see Pinout of your uC Board first !
 
 
 unsigned char flag;
