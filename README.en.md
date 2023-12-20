@@ -88,4 +88,13 @@ The communication and all commands are specified on the one hand in the firmware
 
 Your own changes and extensions can be made freely and easily and are always welcome on your own radio.
 
+USB devices have an identifier consisting of a manufacturer ID (vendor ID) and product ID.
+For some GPIO interfaces, IDs should already be included in iRadioAndroid in the file https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml.
+
+
+![devicefilter](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
+
+If the GPIO interface developed by your own has a different identifier, please enter this identifier in the device_filter file before compiling the project.
+
+
 To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android os.
