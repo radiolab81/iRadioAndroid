@@ -78,6 +78,7 @@ public class gpiodSerialOTG extends Service implements SerialInputOutputManager.
                 try {
                     port.open(connection);
                     port.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                    port.setDTR(true);
                 } catch (IOException e) {
                     Log.e(TAG,e.toString());
                     Log.e(TAG,"unsupported COM parameters");
