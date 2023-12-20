@@ -80,10 +80,17 @@ Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im O
 
 Die Kommunikation und alle Befehle werden auf der einen Seite in der Firmware des extenern Prozessors, der die physikalische GPIO Schnittstelle bereitstellt, und auf der anderen Seite im Beispielcode für den gpiod festgelegt.
 
-
 ![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
 
 Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. 
+
+USB Geräte besitzen eine Kennung bestehend aus Hersteller-ID (Vendor-ID) und Product-ID mit denen sie sich am System anmelden.
+Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in der Datei https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml eingepflegt. 
+
+
+![devicefilter](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
+
+Trägt Ihr entwickeltes GPIO-Interface eine davon abweichende Kennung, tragen Sie diese Kennung bitte vor dem Compilieren des Projektes in die Datei device_filter ein.
 
 
 Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
