@@ -82,11 +82,19 @@ Die Kommunikation und alle Befehle werden auf der einen Seite in der Firmware de
 
 ![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
 
-Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. 
+Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. So ist der Weg über ein OTG-USB Kabel keine Einbahnstraße! So wie Daten zum iRadioAndroid für Ansteuerungszwecke transportiert werden können, kann das iRadioAndroid auch Daten an weitere Radio-Peripherie darüber verschicken. Zum Beispiel können numerische Werte, wie die Empfangsfeldstärke des WiFi-Netzes übertragen werden, um damit eine Simulation von historischen Anzeigeröhren (Magische Augen) zu verwirklichen.
 
+![me1](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me1.jpg)  
+![me2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me2.jpg)
+
+Der Beispielcode eines gpiod liegt in der Datei gpiodSerialOTG_magiceye_support.java vor. Die Firmware für beide abgebildete Röhrentypen im RP2040-Firmware Ordner. 
+Diese Anwendung beschränkt sich dabei keineswegs auf Displays vom GC9A01-Typ. Durch die in der Firmware verwendete Bibliothek (https://github.com/moononournation/Arduino_GFX/tree/master/src/display) lässt sich bereits jetzt ein großer Teil von Displays ansprechen und für verschiedenste Ausgaben auf Sekundärbildschirmen benutzen.
+
+![devkit](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devkit.jpg)*Ein typischer Anwendungsfall: das iRadioAndroid in einer Testumgebung für den Aufbau eines Internetröhrenradios.*
+
+Hinweis: 
 USB Geräte besitzen eine Kennung bestehend aus Hersteller-ID (Vendor-ID) und Product-ID mit denen sie sich am System anmelden.
 Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in der Datei https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml eingepflegt. 
-
 
 ![devicefilter](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
 
@@ -94,21 +102,3 @@ Trägt Ihr entwickeltes GPIO-Interface eine davon abweichende Kennung, tragen Si
 
 
 Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
