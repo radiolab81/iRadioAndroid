@@ -87,8 +87,16 @@ The communication and all commands are specified on the one hand in the firmware
 
 
 Your own changes and extensions can be made freely and easily and are always welcome on your own radio.
+So using an OTG-USB cable is a two-way street! Just as data can be transported to the iRadioAndroid for control purposes, the iRadioAndroid can also send data to other radio peripherals. For example, numerical values ​​such as the field strength of the WiFi network can be transmitted over OTG-USB in order to create a simulation of historical display tubes (magic eyes).
 
-USB devices have an identifier consisting of a manufacturer ID (vendor ID) and product ID.
+![me1](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me1.jpg)  
+![me2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me2.jpg)
+
+The sample code for a gpiod is available in the file gpiodSerialOTG_magiceye_support.java. The firmware for both tube types shown is in the RP2040 firmware folder. This application is by no means limited to displays of the GC9A01 type. Thanks to the library used in the firmware (https://github.com/moononournation/Arduino_GFX/tree/master/src/display), a large number of displays can already be addressed and used for a wide variety of outputs on secondary screens.
+
+![devkit](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devkit.jpg)*A typical use case: the iRadioAndroid in a test environment for building an internet tube radio.*
+
+Notice: USB devices have an identifier consisting of a manufacturer ID (vendor ID) and product ID.
 For some GPIO interfaces, IDs should already be included in iRadioAndroid in the file https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml.
 
 
