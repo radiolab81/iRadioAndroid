@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.iradioandroid.displayd.displayd;
 import com.example.iradioandroid.displayd.displaydCassette;
 import com.example.iradioandroid.displayd.displaydRoundScale;
+import com.example.iradioandroid.displayd.displaydSkaleMagischesAuge;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG_magiceye_support;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
@@ -38,6 +39,7 @@ public class iRadioStartup extends AppCompatActivity {
         Intent displayd_intent = new Intent(this, displayd.class);
         //Intent displayd_intent = new Intent(this, displaydCassette.class);
         //Intent displayd_intent = new Intent(this, displaydRoundScale.class);
+        //Intent displayd_intent = new Intent(this, displaydSkaleMagischesAuge.class);
         startActivity(displayd_intent);
 
         // start gpiod service
