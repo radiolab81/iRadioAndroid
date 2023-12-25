@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.iradioandroid.R;
 import com.example.iradioandroid.displayd.vi.viEM34;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
+import com.example.iradioandroid.iRadioStartup;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -99,6 +100,10 @@ public class displaydSkaleMagischesAuge extends Activity {
                                     throw new RuntimeException(e);
                                 }
                             }
+                            
+                            if (iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+                                iRadioPlayerService.startPlayer();
+                            }
                         }
 
                         if (delta > 0) {
@@ -114,6 +119,10 @@ public class displaydSkaleMagischesAuge extends Activity {
                                 } catch (InterruptedException e) {
                                     throw new RuntimeException(e);
                                 }
+                            }
+                            
+                            if (iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+                                iRadioPlayerService.startPlayer();
                             }
                         }
 
