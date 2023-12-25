@@ -104,5 +104,21 @@ For some GPIO interfaces, IDs should already be included in iRadioAndroid in the
 
 If the GPIO interface developed by your own has a different identifier, please enter this identifier in the device_filter file before compiling the project.
 
+#### Simulation of a tuning noise
+
+In order to simulate the behavior of a real radio even better, a service/process was introduced in iRadioAndroid that already exists for the iRadio for Raspberry, the noised service.
+
+That means that a tuning sound can be played between switching of two Internet radio stations and during the connection and buffering period. Two prepared tuning sounds are included in the files noise.mp3 and tuning.wav, which are located in the res/raw folder of the app. Your own tuning sounds are also possible. To do this, copy your own file with tuning sounds into the res/raw folder. Please enter your filename in the noised source code at the position R.raw.my_file_with_noise (without file extension).
+
+```
+noisePlayer.setDataSource(getApplicationContext(), Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.tuning));
+```
+
+To enable the noised service, comment out the service startup in the iRadioStartup.java file.
+
+The use of noised is not (!) tied to a scale simulation, but is particularly suitable for this!
+
+In addition playback of an Internet radio program can be paused until the frequency dial reaches the new position. To do this, set WAIT_UNTIL_RADIO_DIAL_STOPS = false; in the file iRadioStartup.java to true .
+
 
 To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android os.
