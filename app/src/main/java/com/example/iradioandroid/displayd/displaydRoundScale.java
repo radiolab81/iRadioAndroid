@@ -91,6 +91,10 @@ public class displaydRoundScale extends Activity {
                             }
                         }
 
+                        if (iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+                            iRadioPlayerService.startPlayer();
+                        }
+
                         runOnUiThread(() -> Toast.makeText(displaydRoundScale.this, iRadioPlayerService.getActualChannelNo() + " : " +
                                 iRadioPlayerService.getPlayerURL(), Toast.LENGTH_SHORT).show());
 
