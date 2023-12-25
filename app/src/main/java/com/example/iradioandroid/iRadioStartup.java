@@ -14,6 +14,7 @@ import com.example.iradioandroid.displayd.displaydSkaleMagischesAuge;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG_magiceye_support;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
+import com.example.iradioandroid.noised.noised;
 
 public class iRadioStartup extends AppCompatActivity {
     
@@ -47,6 +48,9 @@ public class iRadioStartup extends AppCompatActivity {
         // start gpiod service
         startService(new Intent( this, gpiodSerialOTG.class ) );
         //startService(new Intent( this, gpiodSerialOTG_magiceye_support.class ) );
+
+        // start noised service
+        //startService(new Intent( this, noised.class ) );
 
     }
 
