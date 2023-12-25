@@ -17,7 +17,7 @@ import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
 
 public class iRadioStartup extends AppCompatActivity {
     
-    public static final boolean WAIT_UNTIL_RADIO_DIAL_STOPS = true;
+    public static final boolean WAIT_UNTIL_RADIO_DIAL_STOPS = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
