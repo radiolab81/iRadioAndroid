@@ -16,6 +16,8 @@ import com.example.iradioandroid.gpiod.gpiodSerialOTG_magiceye_support;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
 
 public class iRadioStartup extends AppCompatActivity {
+    
+    public static final boolean WAIT_UNTIL_RADIO_DIAL_STOPS = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
