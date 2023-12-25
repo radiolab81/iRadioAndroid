@@ -122,10 +122,23 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
 
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
-        // ... react appropriately ...
+          // ... react appropriately ...
         // The MediaPlayer has moved to the Error state, must be reset!
         Log.w(TAG, "mediaplayer throw error " + what + " : " + extra);
+        mp.stop();
         mp.reset();
+
+        // retry to set URL to mediaplayer prepare again
+        if (what == -38 ) {
+            Log.i(TAG, "next try open URL :" + playlist.elementAt(channelID_now).toString());
+            try {
+                mp.setDataSource(getApplicationContext(), Uri.parse(playlist.elementAt(channelID_now).toString()));
+                this.firstStartup = true;
+                mp.prepareAsync();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         return true;
     }
     
