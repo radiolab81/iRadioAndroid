@@ -208,6 +208,8 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
        return playlist.size();
     }
 
+    public boolean isPlaying() { return mediaPlayer.isPlaying(); }
+
 
     /**
      * Class used for the client Binder.  Because we know this service always
