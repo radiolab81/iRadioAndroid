@@ -27,6 +27,8 @@ import java.util.Vector;
 public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener {
     private static final String TAG = "iRadioPlayer";
 
+    private boolean firstStartup = true;
+
     // declaring object of MediaPlayer
     private MediaPlayer mediaPlayer = null;
     private Vector playlist = new Vector<String>();
@@ -106,7 +108,14 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
     /** Called when MediaPlayer is ready */
     public void onPrepared(MediaPlayer player) {
         Log.i(TAG, "starting mediaplayer");
-        mediaPlayer.start();
+        if (!iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+            mediaPlayer.start();
+        } else {
+            if (this.firstStartup) {
+                firstStartup = false;
+                mediaPlayer.start();
+            }
+        }
     }
 
     @Override
