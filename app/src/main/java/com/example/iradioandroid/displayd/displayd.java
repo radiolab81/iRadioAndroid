@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.iradioandroid.R;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
+import com.example.iradioandroid.iRadioStartup;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -93,6 +94,9 @@ public class displayd extends Activity {
                                     throw new RuntimeException(e);
                                 }
                             }
+                            if (iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+                                iRadioPlayerService.startPlayer();
+                            }
                         }
 
                         if (delta > 0) {
@@ -108,6 +112,9 @@ public class displayd extends Activity {
                                 } catch (InterruptedException e) {
                                     throw new RuntimeException(e);
                                 }
+                            }
+                            if (iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
+                                iRadioPlayerService.startPlayer();
                             }
                         }
 
@@ -152,6 +159,5 @@ public class displayd extends Activity {
             mBound = false;
         }
     };
-
 
 }
