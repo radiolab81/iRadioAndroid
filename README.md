@@ -101,4 +101,22 @@ Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in de
 Trägt Ihr entwickeltes GPIO-Interface eine davon abweichende Kennung, tragen Sie diese Kennung bitte vor dem Compilieren des Projektes in die Datei device_filter ein.
 
 
+#### Simulation eines Abstimmgeräusches
+Um das Verhalten eines echten Radios noch besser zu simulieren, wurde ein Service/Prozess im iRadioAndroid eingeführt, den es bereits für das iRadio für Raspberry gibt, den noised - Service. 
+
+Damit wird zwischen dem Umschalten zweier Internetradiosender, sowie im Verbindungs- und Pufferungszeitraum, ein Abstimmgeräusch eingespielt.
+Es werden zwei vorbereitete Abstimmgeräusche in den Dateien noise.mp3 und tuning.wav mitgeliefert, diese liegen im res/raw Ordner der App. Eigene Abstimmgeräusche sind ebenso möglich. Kopieren Sie dazu 
+ihre eigene Datei mit Abstimmgeräuschen in den res/raw Ordner. Ihre Datei tragen Sie bitte im noised Quellcode an der Stelle R.raw.meine_Datei_mit_Abstimmgeräusch (ohne Dateiendung) ein.
+
+```
+noisePlayer.setDataSource(getApplicationContext(), Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.tuning));
+```
+
+Um den noised-Service zu aktivieren, kommentieren Sie den Start des Service in der Datei iRadioStartup.java aus.
+
+Die Verwendung des noised ist nicht(!) an eine Skalensimulation gebunden, eignet sich für diese aber besonders gut!
+
+Zusätzlich kann bei Skalensimulationen die Wiedergabe eines Internetradioprogramms bis zum Erreichen der neuen Position des Skalenzeigers pausiert werden. Setzen Sie dazu  WAIT_UNTIL_RADIO_DIAL_STOPS = false; in der Datei iRadioStartup.java auf true .
+
+
 Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
