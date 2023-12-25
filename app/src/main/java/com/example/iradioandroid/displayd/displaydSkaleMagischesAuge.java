@@ -136,7 +136,11 @@ public class displaydSkaleMagischesAuge extends Activity {
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                 int level= WifiManager.calculateSignalLevel(wifiInfo.getRssi(), 90);
                 //Log.i(TAG, "Wifi-Rssi =" + wifiInfo.getRssi() + " level [0-90] = " + level);
-                magischesAuge.setNewEyeValue(level);
+                runOnUiThread(new Runnable() { @Override
+                    public void run() {
+                        magischesAuge.setNewEyeValue(level);
+                    }
+                });
             }
         };
         timerInstance.schedule(timerTaskInstanceMagAuge, 1000, 500);
