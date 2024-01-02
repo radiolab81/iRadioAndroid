@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener {
+public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
     private static final String TAG = "iRadioPlayer";
 
     private boolean firstStartup = true;
@@ -81,6 +81,9 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
             Log.w(TAG,e.toString() + "mediaplayer resetted");
         }
 
+        // end of stream or mediafile ? -> call onCompletion()
+        mediaPlayer.setOnCompletionListener(this);
+        
         // returns the status
         // of the program
         return START_REDELIVER_INTENT;
@@ -140,6 +143,14 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
             }
         }
         return true;
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mediaPlayer){
+        // Whatever you want to do when the audio playback is done...
+        if (iRadioStartup.AUTOMATIC_NEXT_STATION_OR_TRACK_WHEN_PLAYBACK_IS_DONE) {
+            this.nextProg();
+        }
     }
     
     //PLAYER CONTROLS here
