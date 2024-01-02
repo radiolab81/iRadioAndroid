@@ -19,6 +19,7 @@ import com.example.iradioandroid.noised.noised;
 public class iRadioStartup extends AppCompatActivity {
     
     public static final boolean WAIT_UNTIL_RADIO_DIAL_STOPS = false;
+    public static final boolean AUTOMATIC_NEXT_STATION_OR_TRACK_WHEN_PLAYBACK_IS_DONE = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
