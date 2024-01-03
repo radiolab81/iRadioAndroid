@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
@@ -14,6 +15,8 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
 import androidx.annotation.Nullable;
 
@@ -26,13 +29,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
+public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener,
+        MediaPlayer.OnCompletionListener, SurfaceHolder.Callback, MediaPlayer.OnInfoListener {
     private static final String TAG = "iRadioPlayer";
 
     private boolean firstStartup = true;
 
     // declaring object of MediaPlayer
     private MediaPlayer mediaPlayer = null;
+
+    // videowall
+    SurfaceHolder videoHolder = null;
+    SurfaceView videoSurface = null;
+    private boolean stream_is_video = false;
+
+    // playlist stuff
     private Vector playlist = new Vector<String>();
     private int channelID_now = 0;
 
@@ -50,7 +61,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
         Log.i(TAG, "try to read playlist.m3u from folder Download ...");
         readPlaylistFromFile();
 
-        // create a mediaplayer for streaming audio
+        // create a mediaplayer for streaming
         Log.i(TAG, "initialize mediaplayer");
         mediaPlayer = new MediaPlayer();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -60,7 +71,10 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
                             .setUsage(AudioAttributes.USAGE_MEDIA)
                             .build()
             );
+        } else {
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         }
+
         // stay awake even in background
         mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
         // set wifi lock to stay online
@@ -83,6 +97,9 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
 
         // end of stream or mediafile ? -> call onCompletion()
         mediaPlayer.setOnCompletionListener(this);
+
+        // get information from actual stream (is video or just audio? ,...)
+        mediaPlayer.setOnInfoListener(this);
         
         // returns the status
         // of the program
@@ -100,10 +117,13 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
     public void onDestroy() {
         // cleanup
         if (mediaPlayer != null) {
-            mediaPlayer.stop();
+            if(mediaPlayer.isPlaying()){
+                mediaPlayer.stop();
+            }
             mediaPlayer.release();
             mediaPlayer=null;
         }
+
         wifiLock.release();
         playlist.clear();
         super.onDestroy();
@@ -131,7 +151,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
         mp.stop();
         mp.reset();
 
-        // retry to set URL to mediaplayer prepare again
+        // retry to set URL to mediaplayer and prepare again
         if (what == -38 ) {
             Log.i(TAG, "next try open URL :" + playlist.elementAt(channelID_now).toString());
             try {
@@ -152,7 +172,18 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
             this.nextProg();
         }
     }
-    
+
+    @Override
+    public boolean onInfo(MediaPlayer mp, int what, int extra) {
+        // is actual stream a video or just audio/radio stream?
+        if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START){
+            stream_is_video = true;
+            return true;
+        }
+
+        return false;
+    }
+
     //PLAYER CONTROLS here
     public void pausePlayer() {
         if (mediaPlayer!=null) {
@@ -208,6 +239,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
             mediaPlayer.stop();
             mediaPlayer.reset();
             try {
+                stream_is_video = false; // will be set to true in onInfo, when videostream is detected
                 mediaPlayer.setDataSource(getApplicationContext(), Uri.parse(playlist.elementAt(channelID_now).toString()));
                 mediaPlayer.prepareAsync();
                 return true;
@@ -233,6 +265,29 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
     }
 
     public boolean isPlaying() { return mediaPlayer.isPlaying(); }
+
+    public boolean isVideoStream() { return stream_is_video; }
+
+
+    public void setVideoSurface(SurfaceView videoSurface) {
+        if (videoSurface!=null) {
+            this.videoSurface = videoSurface;
+            videoHolder = this.videoSurface.getHolder();
+            mediaPlayer.setDisplay(videoHolder);
+            videoHolder.addCallback(this);
+        }
+    }
+
+    // Surface Holder Callback methods
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+    }
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) { }
+
 
 
     /**
