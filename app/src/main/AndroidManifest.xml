@@ -49,6 +49,7 @@
         <activity android:name=".displayd.displaydOpenGLES2"/>
         <activity android:name=".displayd.displaydRoundScale"/>
         <activity android:name=".displayd.displaydSkaleMagischesAuge"/>
+        <activity android:name=".displayd.displaydRadioAndTV"/>
 
         <service android:name=".iRadioPlayer.iRadioPlayer" android:label="iRadioPlayer" />
         <service android:name=".gpiod.gpiodSerialOTG" android:label="gpiodSerialOTG" />
