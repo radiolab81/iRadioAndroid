@@ -75,6 +75,7 @@ public class displaydRadioAndTV extends Activity {
             public void run() {
                 //perform your action here
                 if (mBound) {
+                    // tv or radio service?
                     if (iRadioPlayerService.isVideoStream()) {
                         runOnUiThread(() -> videoSurface.setAlpha(1f));
                     } else {
@@ -167,7 +168,7 @@ public class displaydRadioAndTV extends Activity {
             iRadioPlayerService = binder.getService();
             mBound = true;
 
-            // after bounding to iRadioPlayer service, set video wall to player
+            // after binding to iRadioPlayer service, set video wall to player
             if (videoSurface != null) {
                 iRadioPlayerService.setVideoSurface(videoSurface);
             }
