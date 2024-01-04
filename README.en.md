@@ -1,4 +1,4 @@
-# iRadioAndroid
+# iRadioAndroid (now also supports internet TV)
 
 An experimental software kit for building new radios or converting old radios into an Android-based internet radio.
 
@@ -119,6 +119,14 @@ To enable the noised service, comment out the service startup in the iRadioStart
 The use of noised is not (!) tied to a scale simulation, but is particularly suitable for this!
 
 In addition playback of an Internet radio program can be paused until the frequency dial reaches the new position. To do this, set WAIT_UNTIL_RADIO_DIAL_STOPS = false; in the file iRadioStartup.java to true .
+
+
+#### Internet-TV support
+
+With iRadioAndroid you can receive numerous TV channels in addition to Internet radio!
+Within a radio scale simulation, switching between radio and TV picture can be done completely automatically! The streaming addresses of radio and television stations are saved in one playlist.
+
+![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*radio scale simulation - displaydRadioAndTV - with automatic radio/TV switching included as example code*
 
 
 To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android os.
