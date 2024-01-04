@@ -76,9 +76,9 @@ public class displaydRadioAndTV extends Activity {
                 //perform your action here
                 if (mBound) {
                     if (iRadioPlayerService.isVideoStream()) {
-                        runOnUiThread(() -> videoSurface.setAlpha(1.0f));
+                        runOnUiThread(() -> videoSurface.setAlpha(1f));
                     } else {
-                        runOnUiThread(() -> videoSurface.setAlpha(0.0f));
+                        runOnUiThread(() -> videoSurface.setAlpha(0f));
                     }
 
                     int SENDERABSTAND = (ZEIGERANSCHLAG_RECHTS-ZEIGERANSCHLAG_LINKS) / (iRadioPlayerService.getNumberOfChannelsInPlaylist()-1);
