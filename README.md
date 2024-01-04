@@ -119,4 +119,14 @@ Die Verwendung des noised ist nicht(!) an eine Skalensimulation gebunden, eignet
 Zusätzlich kann bei Skalensimulationen die Wiedergabe eines Internetradioprogramms bis zum Erreichen der neuen Position des Skalenzeigers pausiert werden. Setzen Sie dazu  WAIT_UNTIL_RADIO_DIAL_STOPS = false; in der Datei iRadioStartup.java auf true .
 
 
+#### Internet-TV Support
+
+Mit dem iRadioAndroid kann man neben Internetradio auch zahlreiche TV-Sender empfangen!
+Innerhalb einer Skalensimulation kann die Umschaltung zwischen Radioansicht und TV-Bild vollständig automatisch erfolgen! Die Streamingadressen von Radio und Fernsehsendern können in einer gemeinsamen Playlist gespeichert werden. 
+
+![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*Skalensimulation - displaydRadioAndTV - mit automatischer Radio/TV-Umschaltung als Beispielcode enthalten*
+
+
+
+
 Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
