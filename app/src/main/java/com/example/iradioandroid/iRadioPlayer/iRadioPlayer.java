@@ -273,8 +273,10 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
         if (videoSurface!=null) {
             this.videoSurface = videoSurface;
             videoHolder = this.videoSurface.getHolder();
-            mediaPlayer.setDisplay(videoHolder);
-            videoHolder.addCallback(this);
+            if (videoHolder != null) {
+                mediaPlayer.setDisplay(videoHolder);
+                videoHolder.addCallback(this);
+            }
         }
     }
 
