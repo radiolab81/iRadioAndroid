@@ -46,6 +46,7 @@
 
         <activity android:name=".displayd.displayd"/>
         <activity android:name=".displayd.displaydCassette"/>
+        <activity android:name=".displayd.displaydCassetteVideoAnimated"/>
         <activity android:name=".displayd.displaydOpenGLES2"/>
         <activity android:name=".displayd.displaydRoundScale"/>
         <activity android:name=".displayd.displaydSkaleMagischesAuge"/>
