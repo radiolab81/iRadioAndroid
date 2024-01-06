@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iradioandroid.displayd.displayd;
 import com.example.iradioandroid.displayd.displaydCassette;
+import com.example.iradioandroid.displayd.displaydCassetteVideoAnimated;
 import com.example.iradioandroid.displayd.displaydRadioAndTV;
 import com.example.iradioandroid.displayd.displaydRoundScale;
 import com.example.iradioandroid.displayd.displaydSkaleMagischesAuge;
@@ -43,6 +44,7 @@ public class iRadioStartup extends AppCompatActivity {
         // start displayd as Activity
         Intent displayd_intent = new Intent(this, displayd.class);
         //Intent displayd_intent = new Intent(this, displaydCassette.class);
+        //Intent displayd_intent = new Intent(this, displaydCassetteVideoAnimated.class);
         //Intent displayd_intent = new Intent(this, displaydRoundScale.class);
         //Intent displayd_intent = new Intent(this, displaydSkaleMagischesAuge.class);
         //Intent displayd_intent = new Intent(this, displaydRadioAndTV.class);
