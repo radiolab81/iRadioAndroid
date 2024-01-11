@@ -1,4 +1,4 @@
-# iRadioAndroid  ( jetzt auch für Internet-TV und Web-/KiwiSDRs )
+# iRadioAndroid  ( jetzt auch für Internet-TV und WebSDR/KiwiSDR )
 (for english version click here: https://github.com/BM45/iRadioAndroid/blob/main/README.en.md)
 
 Ein experimenteller Softwarebaukasten für den Aufbau neuer Radios oder dem Umbau alter Radios zu einem Internetradio auf Android Basis.
