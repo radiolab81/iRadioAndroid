@@ -11,11 +11,14 @@ import com.example.iradioandroid.displayd.displayd;
 import com.example.iradioandroid.displayd.displaydCassette;
 import com.example.iradioandroid.displayd.displaydCassetteVideoAnimated;
 import com.example.iradioandroid.displayd.displaydRadioAndTV;
+import com.example.iradioandroid.displayd.displaydRadioAndTVAndWebSDR;
 import com.example.iradioandroid.displayd.displaydRoundScale;
 import com.example.iradioandroid.displayd.displaydSkaleMagischesAuge;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG;
 import com.example.iradioandroid.gpiod.gpiodSerialOTG_magiceye_support;
 import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
+import com.example.iradioandroid.iRadioSDR.iRadioKiwiSDRPlayer;
+import com.example.iradioandroid.iRadioSDR.iRadioWebSDRPlayer;
 import com.example.iradioandroid.noised.noised;
 
 public class iRadioStartup extends AppCompatActivity {
@@ -48,6 +51,7 @@ public class iRadioStartup extends AppCompatActivity {
         //Intent displayd_intent = new Intent(this, displaydRoundScale.class);
         //Intent displayd_intent = new Intent(this, displaydSkaleMagischesAuge.class);
         //Intent displayd_intent = new Intent(this, displaydRadioAndTV.class);
+        //Intent displayd_intent = new Intent(this, displaydRadioAndTVAndWebSDR.class);
         startActivity(displayd_intent);
 
         // start gpiod service
@@ -56,6 +60,11 @@ public class iRadioStartup extends AppCompatActivity {
 
         // start noised service
         //startService(new Intent( this, noised.class ) );
+
+        // start WebSDRPlayer Service
+        startService(new Intent(this, iRadioWebSDRPlayer.class));
+        // start KiwiSDRPlayer Service
+        startService(new Intent(this, iRadioKiwiSDRPlayer.class));
 
     }
 
