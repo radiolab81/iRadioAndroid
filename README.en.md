@@ -1,4 +1,4 @@
-# iRadioAndroid (now also supports internet TV)
+# iRadioAndroid (now also supports internet TV & WebSDR/KiwiSDR)
 
 An experimental software kit for building new radios or converting old radios into an Android-based internet radio.
 
@@ -128,5 +128,12 @@ Within a radio scale simulation, switching between radio and TV picture can be d
 
 ![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*radio scale simulation - displaydRadioAndTV - with automatic radio/TV switching included as example code*
 
+#### WebSDR / KiwiSDR Support
 
-To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android os.
+![websdr](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*radio scale simulation with WebSDR/KiwiSDR control*
+
+The iRadioAndroid offers support for controlling WebSDR and KiwiSDR. This means that the iRadioAndroid is ready to receive hundreds of SDR receivers worldwide. From time signal transmitters to Qatar-OSCAR 100.
+The included demo scale simulation shows the integration of web-based sdr-receivers into your own application.
+
+
+To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android OS.
