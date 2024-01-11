@@ -1,4 +1,4 @@
-# iRadioAndroid  ( jetzt auch für Internet-TV )
+# iRadioAndroid  ( jetzt auch für Internet-TV und Web-/KiwiSDRs )
 (for english version click here: https://github.com/BM45/iRadioAndroid/blob/main/README.en.md)
 
 Ein experimenteller Softwarebaukasten für den Aufbau neuer Radios oder dem Umbau alter Radios zu einem Internetradio auf Android Basis.
@@ -100,7 +100,6 @@ Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in de
 
 Trägt Ihr entwickeltes GPIO-Interface eine davon abweichende Kennung, tragen Sie diese Kennung bitte vor dem Compilieren des Projektes in die Datei device_filter ein.
 
-
 #### Simulation eines Abstimmgeräusches
 Um das Verhalten eines echten Radios noch besser zu simulieren, wurde ein Service/Prozess im iRadioAndroid eingeführt, den es bereits für das iRadio für Raspberry gibt, den noised - Service. 
 
@@ -126,7 +125,13 @@ Innerhalb einer Skalensimulation kann die Umschaltung zwischen Radioansicht und 
 
 ![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*Skalensimulation - displaydRadioAndTV - mit automatischer Radio/TV-Umschaltung als Beispielcode enthalten*
 
+#### WebSDR / KiwiSDR Support
+
+![websdr](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*Skalensimulation - mit WebSDR/KiwiSDR Ansteuerung (als Beispielcode enthalten)*
+
+Das iRadioAndroid bietet Unterstützung zur Ansteuerung von WebSDR und KiwiSDR. Damit ist das iRadioAndroid empfangsbereit für weltweit hunderte SDR-Empfänger. Vom Zeitzeichensender bis zu Qatar-OSCAR 100. 
+Die mitgelieferte Demoskalensimualtion zeigt die Einbindung der entfernten Empfänger in eine eigene Anwendung.
 
 
 
-Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
+Hinweis: Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
