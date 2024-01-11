@@ -27,6 +27,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IRadioAndroid"
         tools:targetApi="29">
+
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+
         <activity
             android:name=".iRadioStartup"
             android:exported="true">
@@ -51,11 +55,14 @@
         <activity android:name=".displayd.displaydRoundScale"/>
         <activity android:name=".displayd.displaydSkaleMagischesAuge"/>
         <activity android:name=".displayd.displaydRadioAndTV"/>
+        <activity android:name=".displayd.displaydRadioAndTVAndWebSDR"/>
 
         <service android:name=".iRadioPlayer.iRadioPlayer" android:label="iRadioPlayer" />
         <service android:name=".gpiod.gpiodSerialOTG" android:label="gpiodSerialOTG" />
         <service android:name=".gpiod.gpiodSerialOTG_magiceye_support" android:label="gpiodSerialOTG_magiceye_support" />
         <service android:name=".noised.noised" android:label="noised" />
+        <service android:name=".iRadioSDR.iRadioWebSDRPlayer" android:label="iRadioWebSDRPlayer" />
+        <service android:name=".iRadioSDR.iRadioKiwiSDRPlayer" android:label="iRadioKiwiSDRPlayer" />
 
     </application>
 
