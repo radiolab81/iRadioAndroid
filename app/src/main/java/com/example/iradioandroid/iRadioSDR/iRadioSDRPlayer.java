@@ -8,7 +8,7 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 
 abstract class iRadioSDRPlayer extends Service {
-    enum Modulation {
+    static enum Modulation {
         AM, FM, DRM, LSB, USB, CW
     }
 
