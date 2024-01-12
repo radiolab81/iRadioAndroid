@@ -138,14 +138,14 @@ public class KiwiDB {
                     } catch (MalformedURLException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        Log.e("TAG",e.toString());
+                        Log.e(TAG,e.toString());
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        Log.e("TAG",e.toString());
+                        Log.e(TAG,e.toString());
                     }
                 } catch (Exception e) {
-                    Log.e("TAG", e.toString());
+                    Log.e(TAG, e.toString());
                 }
             }
         });
