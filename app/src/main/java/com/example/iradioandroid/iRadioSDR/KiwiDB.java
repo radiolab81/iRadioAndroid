@@ -17,7 +17,8 @@ import java.util.Vector;
 
 public class KiwiDB {
     private static final String TAG = "KiwiDB";
-    static enum KiwiDBResult { OK, ERROR };
+    
+    public static enum KiwiDBResult { OK, ERROR };
 
     private static Vector kiwisdr_url = new Vector();
     private static Vector kiwisdr_name = new Vector();
