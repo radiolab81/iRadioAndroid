@@ -31,14 +31,14 @@ public class displaydRadioAndTVAndWebSDR extends Activity {
     private final int ZEIGERANSCHLAG_LINKS = 140;
     private final int ZEIGERANSCHLAG_RECHTS = 1350;
 
-    public enum Modes {
+    public static enum Modes {
         IRADIO, SDR
     }
 
     Modes mMode = Modes.IRADIO;
 
 
-    public enum SDR_Type {
+    public static enum SDR_Type {
         WEBSDR, KIWISDR
     }
 
