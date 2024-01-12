@@ -323,6 +323,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
                     playlist.add(line);
                     line = reader.readLine();
                 }
+                reader.close();
                 Log.i(TAG, playlist.size() + " stations in playlist now ");
 
             } catch (java.io.IOException ex) {
