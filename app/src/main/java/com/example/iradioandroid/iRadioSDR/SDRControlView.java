@@ -1,16 +1,17 @@
 package com.example.iradioandroid.iRadioSDR;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.iradioandroid.R;
-
-import android.widget.Button;
-import android.widget.TextView;
+import com.example.iradioandroid.displayd.displaydRadioAndTVAndWebSDR;
 
 public class SDRControlView extends ConstraintLayout implements View.OnClickListener {
     private static final String TAG = "SDRControlView";
@@ -22,6 +23,9 @@ public class SDRControlView extends ConstraintLayout implements View.OnClickList
     Button btn_0, btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9;
     Button btn_Back, btn_Tune;
     Button btn_AM, btn_LSB, btn_USB;
+
+    Button btn_SDRSetting;
+    displaydRadioAndTVAndWebSDR.SDR_Type sdrType;
 
     public SDRControlView(Context context) {
         super(context);
@@ -93,6 +97,9 @@ public class SDRControlView extends ConstraintLayout implements View.OnClickList
 
         btn_LSB = findViewById(R.id.buttonLSB);
         btn_LSB.setOnClickListener(this);
+
+        btn_SDRSetting = findViewById(R.id.buttonKiwiSDRServers);
+        btn_SDRSetting.setVisibility(INVISIBLE); // INVISIBLE because we dont know SDRType yet
     }
 
     // onClick handling for all buttons on numpad/control panel
@@ -154,10 +161,20 @@ public class SDRControlView extends ConstraintLayout implements View.OnClickList
         // Send new parameters to SDR service
         if (btn_Tune.getId() == view.getId()) {
             if (iRadioSDRPlayerService != null) {
-                Log.i(TAG, "set WebSDR to new frequency, mode, ...");
-                if (textview_frequency.length()!=0) {
+                Log.i(TAG, "set SDR to new frequency, mode, ...");
+                if (textview_frequency.length() != 0) {
                     iRadioSDRPlayerService.setFrequency(Integer.parseInt(textview_frequency.getText().toString()));
                     iRadioSDRPlayerService.setModulation(modulation);
+
+                    if (sdrType == displaydRadioAndTVAndWebSDR.SDR_Type.WEBSDR) {
+                        // do WebSDR specific stuff here
+                    }
+
+                    if (sdrType == displaydRadioAndTVAndWebSDR.SDR_Type.KIWISDR) {
+                        // do KiwiSDR specific stuff here
+                        ((iRadioKiwiSDRPlayer) iRadioSDRPlayerService).setServerURL(new KiwiDB().loadSelectedKiwiServerURL());
+                    }
+
                     iRadioSDRPlayerService.startPlayer();
                 }
             }
@@ -186,6 +203,20 @@ public class SDRControlView extends ConstraintLayout implements View.OnClickList
             btn_USB.setBackground(getResources().getDrawable(R.drawable.rft_ekd_key));
             btn_LSB.setBackground(getResources().getDrawable(R.drawable.rft_ekd_key_yellow));
         }
+
+        // special Views for SDR setup?
+        if (btn_SDRSetting.getId() == view.getId()) {
+
+            if (sdrType == displaydRadioAndTVAndWebSDR.SDR_Type.WEBSDR) {
+                // Views for WebSDR setup do here
+            }
+
+            if (sdrType == displaydRadioAndTVAndWebSDR.SDR_Type.KIWISDR) {
+                Intent intent = new Intent(getContext(), KiwiDBView.class);
+                getContext().startActivity(intent);
+            }
+
+        }
     }
 
     private void addOneDigitOnFrequencyDisplay(int digit) {
@@ -208,4 +239,19 @@ public class SDRControlView extends ConstraintLayout implements View.OnClickList
     public void setSDRPlayerService(iRadioSDRPlayer iRadioSDRPlayerService) {
         this.iRadioSDRPlayerService = iRadioSDRPlayerService;
     }
+
+    public void setSDRType(displaydRadioAndTVAndWebSDR.SDR_Type sdrType) {
+        this.sdrType = sdrType;
+
+        if (sdrType == displaydRadioAndTVAndWebSDR.SDR_Type.KIWISDR) {
+            btn_SDRSetting.setOnClickListener(this);
+            btn_SDRSetting.setVisibility(View.VISIBLE);
+        } else {
+            btn_SDRSetting.setEnabled(false);
+            btn_SDRSetting.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
+
 }
