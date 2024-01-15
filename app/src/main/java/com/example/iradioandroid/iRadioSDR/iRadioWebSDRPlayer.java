@@ -15,9 +15,6 @@ import com.example.iradioandroid.iRadioPlayer.iRadioPlayer;
 public class iRadioWebSDRPlayer extends iRadioSDRPlayer {
     private static final String TAG = "iRadioWebSDRPlayer";
 
-    private String URL = "http://websdr.ewi.utwente.nl:8901//?";
-    //private String URL = "http://websdr.ewi.utwente.nl:8901//?tune=6150am"; see http://websdr1.kfsdr.com:8901/url_params.html
-
     private WebView playerWebView = null;
     // view for a web browser to respect PA3FWMs licence and will (access websdr-site just over web browser)
 
@@ -31,7 +28,9 @@ public class iRadioWebSDRPlayer extends iRadioSDRPlayer {
 
     @Override
     public void startPlayer() {
-        if (URL.isEmpty()) {
+        setServerURL("http://websdr.ewi.utwente.nl:8901//?");
+        // "http://websdr.ewi.utwente.nl:8901//?tune=6150am"; see http://websdr1.kfsdr.com:8901/url_params.html
+        if (getServerURL().isEmpty()) {
             Toast.makeText(iRadioWebSDRPlayer.this, TAG + " says: no URL to WebSDR defined", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -41,7 +40,7 @@ public class iRadioWebSDRPlayer extends iRadioSDRPlayer {
             playerWebView.clearCache(true);
             playerWebView.getSettings().setJavaScriptEnabled(true);
             playerWebView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-            playerWebView.loadUrl(URL+"tune="+getFrequency()+getModulation());
+            playerWebView.loadUrl(getServerURL()+"tune="+getFrequency()+getModulation());
             playerWebView.setVisibility(View.INVISIBLE); // we just want the audio, not the rendered website
         }
     }
