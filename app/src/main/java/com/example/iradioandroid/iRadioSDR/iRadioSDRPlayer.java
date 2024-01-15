@@ -13,6 +13,7 @@ abstract class iRadioSDRPlayer extends Service {
     }
 
    // private final IBinder binder = new LocalBinder();
+    private String URL = ""; // for internet SDRs
 
     private int frequency = 0;
     private short bandwidth = 0;
@@ -26,6 +27,13 @@ abstract class iRadioSDRPlayer extends Service {
 
     public void setModulation(Modulation mod) { modulation = mod; }
     public Modulation getModulation() { return modulation; }
+
+    public String getServerURL() {
+        return URL;
+    }
+    public void setServerURL(String URL) {
+        this.URL = URL;
+    }
 
     abstract public void startPlayer();
     abstract public void stopPlayer();
