@@ -157,6 +157,7 @@ public class displaydRadioAndTVAndWebSDR extends Activity {
 
         // control panel for SDR mode, invisible because App starting within IRADIO mode
         sdrControlView = findViewById(R.id.SDRControlView);
+        sdrControlView.setSDRType(sdrType); // KiwiSDR or WebSDR ?
         sdrControlView.setEnabled(false);
         sdrControlView.setVisibility(View.INVISIBLE);
 
