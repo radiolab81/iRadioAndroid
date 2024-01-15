@@ -132,6 +132,8 @@ Innerhalb einer Skalensimulation kann die Umschaltung zwischen Radioansicht und 
 Das iRadioAndroid bietet Unterstützung zur Ansteuerung von WebSDR und KiwiSDR. Damit ist das iRadioAndroid empfangsbereit für weltweit hunderte SDR-Empfänger. Vom Zeitzeichensender bis zu Qatar-OSCAR 100. 
 Die mitgelieferte Demoskalensimualtion zeigt die Einbindung der entfernten Empfänger in eine eigene Anwendung.
 
+![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*Demo: Verwaltung/Aktualisierung von KiwiSDR Servern innerhalb der Skalensimulation*
+
 
 
 Hinweis: Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
