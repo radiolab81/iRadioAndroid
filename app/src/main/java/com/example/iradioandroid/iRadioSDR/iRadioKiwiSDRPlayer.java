@@ -46,8 +46,6 @@ see -> http://www.la6lu.no/files/LA6LU-KiwiSDR_User_Manual.pdf
 public class iRadioKiwiSDRPlayer extends iRadioSDRPlayer {
     private static final String TAG = "iRadioKiwiSDRPlayer";
 
-    private String URL = "";
-
     private WebView playerWebView = null;
 
     // Binder given to clients.
@@ -60,17 +58,22 @@ public class iRadioKiwiSDRPlayer extends iRadioSDRPlayer {
 
     @Override
     public void startPlayer() {
-        if (URL.isEmpty()) {
-          Toast.makeText(iRadioKiwiSDRPlayer.this, TAG + " says: no URL to KiwiSDR defined", Toast.LENGTH_SHORT).show();
+        setServerURL(new KiwiDB().loadSelectedKiwiServerURL());  // mykiwi.db on filesys?
+
+        if (getServerURL().isEmpty()) {
+          Toast.makeText(iRadioKiwiSDRPlayer.this, TAG + " no URL to KiwiSDR defined", Toast.LENGTH_LONG).show();
           return;
+        } else {
+            Toast.makeText(iRadioKiwiSDRPlayer.this, "using server: " + getServerURL() , Toast.LENGTH_LONG).show();
         }
+
         Log.i(TAG, "starting iRadioKiwiSDRPlayer");
         if (playerWebView != null) {
             playerWebView.clearHistory();
             playerWebView.clearCache(true);
             playerWebView.getSettings().setJavaScriptEnabled(true);
             playerWebView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-            playerWebView.loadUrl(URL+"?f="+getFrequency()+getModulation()+"&vol=200");
+            playerWebView.loadUrl(getServerURL()+"?f="+getFrequency()+getModulation()+"&vol=200");
             playerWebView.setVisibility(View.INVISIBLE); // we just want the audio, not the rendered website
         }
     }
@@ -83,6 +86,7 @@ public class iRadioKiwiSDRPlayer extends iRadioSDRPlayer {
             playerWebView.setVisibility(View.INVISIBLE);
         }
     }
+
 
     @Nullable
     @Override
@@ -100,5 +104,6 @@ public class iRadioKiwiSDRPlayer extends iRadioSDRPlayer {
             return iRadioKiwiSDRPlayer.this;
         }
     }
+
 
 }
