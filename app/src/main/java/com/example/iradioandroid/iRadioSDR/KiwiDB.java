@@ -2,6 +2,9 @@ package com.example.iradioandroid.iRadioSDR;
 
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.iradioandroid.displayd.displayd;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,14 +20,13 @@ import java.util.Vector;
 
 public class KiwiDB {
     private static final String TAG = "KiwiDB";
-    
-    public static enum KiwiDBResult { OK, ERROR };
+    public enum KiwiDBResult { OK, ERROR };
 
     private static Vector kiwisdr_url = new Vector();
     private static Vector kiwisdr_name = new Vector();
 
     /* load kiwis.db Database from Downloads folder */
-    public KiwiDBResult loadDB() {
+    static public KiwiDBResult loadDB() {
             FileInputStream is;
             BufferedReader reader;
             final File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/kiwis.db");
@@ -33,6 +35,8 @@ public class KiwiDB {
                 is = new FileInputStream(file);
                 reader = new BufferedReader(new InputStreamReader(is));
                 String line = reader.readLine();
+                kiwisdr_url.clear();
+                kiwisdr_name.clear();
                 while (line != null) {
                     Log.i(TAG, line);
                     // " " is seperator -> URL[ ]Metainfo
@@ -40,7 +44,7 @@ public class KiwiDB {
                     kiwisdr_name.add(line.substring(line.indexOf(" ")));
                     line = reader.readLine();
                 }
-                Log.i(TAG, kiwisdr_url.size() + "servers in kiwidb now ");
+                Log.i(TAG, kiwisdr_url.size() + " servers in kiwidb now ");
                 reader.close();
                 return KiwiDBResult.OK;
 
@@ -54,10 +58,13 @@ public class KiwiDB {
     /* Format:   URL separator Metainfo \n
     /* where separator is " "
      */
-    public KiwiDBResult saveDB() {
+    static public KiwiDBResult saveDB() {
         FileOutputStream os;
         BufferedWriter writer;
         final File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/kiwis.db");
+        if(file.exists()) {
+            file.delete();
+        }
 
         try {
             os = new FileOutputStream(file);
@@ -74,25 +81,68 @@ public class KiwiDB {
         }
     };
 
-    public String getKiwiSDRElementAt(int id) {
+    static public KiwiDBResult saveSelectedKiwiServerURL(String URL) {
+        FileOutputStream os;
+        BufferedWriter writer;
+        final File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/mykiwi.db");
+        if(file.exists()) {
+            file.delete();
+        }
+
+        try {
+            os = new FileOutputStream(file);
+            writer = new BufferedWriter(new OutputStreamWriter(os));
+            writer.write(URL + "\n");
+            writer.close();
+            Log.i(TAG, "server url " + URL + " saved in mykiwi.db" );
+            return KiwiDBResult.OK;
+
+        } catch (IOException ex) {
+            Log.w(TAG, ex.toString());
+            return KiwiDBResult.ERROR;
+        }
+    }
+
+
+    static public String loadSelectedKiwiServerURL() {
+        FileInputStream is;
+        BufferedReader reader;
+        final File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/mykiwi.db");
+
+        try {
+            is = new FileInputStream(file);
+            reader = new BufferedReader(new InputStreamReader(is));
+            String line = reader.readLine();
+            reader.close();
+            Log.i(TAG, "server url " + line + " from mykiwi.db");
+            return line;
+
+        } catch (IOException ex) {
+            Log.w(TAG, ex.toString());
+            return "";
+        }
+    }
+
+
+    static public String getKiwiSDRElementAt(int id) {
         return (String) kiwisdr_url.elementAt(id);
     }
 
-    public String getKiwiSDRInfoElementAt(int id) {
+    static public String getKiwiSDRInfoElementAt(int id) {
         return (String) kiwisdr_name.elementAt(id);
     }
 
-    public Vector<String> getKiwiSDRUrlDB() {
-        return (Vector<String>) kiwisdr_url.clone();
+    static public Vector<String> getKiwiSDRUrlDB() {
+        return kiwisdr_url;
     }
 
-    public Vector<String> getKiwiSDRInfoDB() {
-        return (Vector<String>) kiwisdr_name.clone();
+    static public Vector<String> getKiwiSDRInfoDB() {
+        return kiwisdr_name;
     }
 
 
     /* updates the kiwis.db database from http://kiwisdr.com/public/ */
-    public void updateDBfromWeb() {
+    static public void updateDBfromWeb() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -125,7 +175,7 @@ public class KiwiDB {
                         }
                         bufferReader.close();
                         if (kiwisdr_name_temp.size() == kiwisdr_url_temp.size()) {
-                            Log.i(TAG, "found servers " + kiwisdr_url.size());
+                            Log.i(TAG, "found servers " + kiwisdr_url_temp.size());
                             kiwisdr_url.clear();
                             kiwisdr_url = (Vector) kiwisdr_url_temp.clone();
                             kiwisdr_name.clear();
