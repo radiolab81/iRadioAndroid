@@ -135,5 +135,7 @@ Within a radio scale simulation, switching between radio and TV picture can be d
 The iRadioAndroid offers support for controlling WebSDR and KiwiSDR. This means that the iRadioAndroid is ready to receive hundreds of SDR receivers worldwide. From time signal transmitters to Qatar-OSCAR 100.
 The included demo scale simulation shows the integration of web-based sdr-receivers into your own application.
 
+![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*management/updating of KiwiSDR servers within scale simulation*
+
 
 To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android OS.
