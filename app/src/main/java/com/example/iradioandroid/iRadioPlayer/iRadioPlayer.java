@@ -227,7 +227,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
 
     public void gotoProg(int channel) {
         if (mediaPlayer!= null) {
-            if ((channel > 0 ) && (channel < playlist.size()-1)) {
+            if ((channel >= 0 ) && (channel < playlist.size())) {
                 channelID_now = channel;
                 switchToChannel(channelID_now);
             }
