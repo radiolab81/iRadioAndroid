@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="100"
+    android:fitsSystemWindows="true"
+    android:visibility="visible"
+    tools:context=".tx.inet2RFView"
+    tools:visibility="visible">
+
+
+    <ImageView
+        android:id="@+id/imageView_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleY="1.1"
+        android:src="@drawable/radio_tv_sdr_scale_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageZeiger"
+        android:layout_width="11dp"
+        android:layout_height="397dp"
+        android:background="@drawable/zeiger"
+        android:foreground="@drawable/zeiger"
+        android:keepScreenOn="true"
+        android:visibility="visible"
+        app:srcCompat="@drawable/zeiger"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="3dp"
+        tools:visibility="visible"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView_fg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleY="1.1"
+        android:src="@drawable/radio_tv_sdr_scale_fg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <view
+        class="com.example.iradioandroid.tx.inet2RFView$DrawingLayer"
+        android:id="@+id/drawingLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
