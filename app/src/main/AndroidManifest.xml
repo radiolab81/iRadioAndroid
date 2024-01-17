@@ -62,6 +62,7 @@
         <service android:name=".iRadioPlayer.iRadioPlayer" android:label="iRadioPlayer" />
         <service android:name=".gpiod.gpiodSerialOTG" android:label="gpiodSerialOTG" />
         <service android:name=".gpiod.gpiodSerialOTG_magiceye_support" android:label="gpiodSerialOTG_magiceye_support" />
+        <service android:name=".tx.gpiodSerialOTG_inet2RF" android:label="gpiodSerialOTG_inet2RF" />
         <service android:name=".noised.noised" android:label="noised" />
         <service android:name=".iRadioSDR.iRadioWebSDRPlayer" android:label="iRadioWebSDRPlayer" />
         <service android:name=".iRadioSDR.iRadioKiwiSDRPlayer" android:label="iRadioKiwiSDRPlayer" />
