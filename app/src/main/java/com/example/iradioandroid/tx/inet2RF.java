@@ -35,9 +35,8 @@ public class inet2RF {
     }
 
     public static int getNewTXFrequency(int frequency) {
-        frequency += IF_OFFSET;
         if (frequency >= MINIMAL_TX_FRQ && frequency <= MAXIMAL_TX_FRQ) {
-            return (MINIMAL_TX_FRQ + getChannelNoFromFreq(frequency) * SENDERABSTAND);
+            return (MINIMAL_TX_FRQ + getChannelNoFromFreq(frequency-IF_OFFSET) * SENDERABSTAND);
         }
         return MINIMAL_TX_FRQ;
     }
