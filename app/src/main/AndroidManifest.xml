@@ -57,6 +57,7 @@
         <activity android:name=".displayd.displaydRadioAndTV"/>
         <activity android:name=".displayd.displaydRadioAndTVAndWebSDR"/>
         <activity android:name=".iRadioSDR.KiwiDBView"/>
+        <activity android:name=".tx.inet2RFView"/>
 
         <service android:name=".iRadioPlayer.iRadioPlayer" android:label="iRadioPlayer" />
         <service android:name=".gpiod.gpiodSerialOTG" android:label="gpiodSerialOTG" />
