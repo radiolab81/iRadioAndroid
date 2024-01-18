@@ -137,5 +137,15 @@ The included demo scale simulation shows the integration of web-based sdr-receiv
 
 ![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*management/updating of KiwiSDR servers within scale simulation*
 
+#### Broadcasting internet radio program to old radios
+
+The iRadioAndroid can serve as a modulation source for old radios and relay Internet radio stations via RF.
+Using the inet2RF service, the radio stations in the station list are mapped into a selectable RF range (if supported by the transmitter module). The change of the transmission frequency and the internet radio program to be broadcast is carried out by measuring the frequency of the local oscillator of the radio to be supplied, taking into account the intermediate frequency using a superheterodyne principle.
+
+![inet2rf](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typical setup for mapping a playlist in the medium wave range of a radio*
+
+The Lo frequency measured on the radio, the transmitter frequency and modulation source are displayed in real time.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wITcIP00m-0/0.jpg)](https://www.youtube.com/watch?v=wITcIP00m-0)
 
 To start automatically the iRadioAndroid-App on your fully developed radio, set iRadioAndroid to the autostart of the Android OS.
