@@ -134,6 +134,15 @@ Die mitgelieferte Demoskalensimualtion zeigt die Einbindung der entfernten Empf�
 
 ![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*Demo: Verwaltung/Aktualisierung von KiwiSDR Servern innerhalb der Skalensimulation*
 
+#### Aussendung des Internetradioprogramms an alte Radios
 
+Das iRadioAndroid kann als Modulationsquelle für alte Radios dienen und Internetradiosender über HF erneut ausspielen.
+Über den Service inet2RF werden die Radiostationen der Senderliste (Playlist.m3u) in einen wählbaren HF-Bereich (sofern vom Sendemodul unterstützt) abgebildet. Die Umschaltung der Sendefrequenz und des zu sendenden Internetradioprogramms erfolgt durch Messung der Frequenz des Lokaloszillators des zu versorgenden Radios unter Berücksichtigung der Zwischenfrequenz bei einem Superhetprinzip.
+
+![inet2rf](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typisches Setup für das Mapping einer Playlist in den Mittelwellenbereich eines Radios*
+
+Die Darstellung der am Radio gemessenen Lo-Frequenz, der aktuell eingestellten Senderfrequenz und Modulationsquelle erfolgen in Echtzeit. 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wITcIP00m-0/0.jpg)](https://www.youtube.com/watch?v=wITcIP00m-0)
 
 Hinweis: Sollte in Ihrem fertig entwickeltem Radiogerät die iRadioAndroid-App nach dem Bootprozess von Android selbstständig starten können, so ist iRadioAndroid noch in den "Autostart" von Android zu setzen.
