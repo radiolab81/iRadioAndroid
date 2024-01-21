@@ -121,7 +121,6 @@ public class gpiodSerialOTG_inet2RF extends Service implements SerialInputOutput
             if (iRadioPlayerService != null) {
                 if (dataUTF8.contains("FRX=")) {
                     Log.i(TAG, "new frequency from counter command");
-                    dataUTF8 = dataUTF8.substring(0, new String("FRX=xxxx").length());
                     dataUTF8 = dataUTF8.replace("FRX=", "");
                     dataUTF8 = dataUTF8.replace(" ", "");
                     dataUTF8 = dataUTF8.replace("\n", "");
