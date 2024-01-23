@@ -133,12 +133,14 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
     /** Called when MediaPlayer is ready */
     public void onPrepared(MediaPlayer player) {
         Log.i(TAG, "starting mediaplayer");
+        // must be renewed after mp paused or stoped 
+        player.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
         if (!iRadioStartup.WAIT_UNTIL_RADIO_DIAL_STOPS) {
-            mediaPlayer.start();
+            player.start();
         } else {
             if (this.firstStartup) {
                 firstStartup = false;
-                mediaPlayer.start();
+                player.start();
             }
         }
     }
@@ -197,6 +199,8 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
     public void startPlayer() {
         if (mediaPlayer!=null) {
             if (!mediaPlayer.isPlaying()) {
+                // must be renewed after mp paused or stoped
+                mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
                 mediaPlayer.start();
                 Log.i(TAG, "starting mediaplayer");
             }
