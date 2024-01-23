@@ -183,6 +183,26 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
             return true;
         }
 
+        if (what == 3) {
+            Log.w(TAG, "3 - MEDIA_INFO_VIDEO_RENDERING_START");
+            return true;
+        }
+
+        if (what == 703) {
+            Log.w(TAG, "703 - MEDIA_INFO_NETWORK_BANDWIDTH " + extra);
+            return true;
+        }
+
+        if (what == MediaPlayer.MEDIA_INFO_BUFFERING_START) {
+            Log.w(TAG,"MEDIA_INFO_BUFFERING_START");
+            return true;
+        }
+
+        if (what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {
+            Log.w(TAG, "MEDIA_INFO_BUFFERING_END");
+            return true;
+        }
+
         return false;
     }
 
