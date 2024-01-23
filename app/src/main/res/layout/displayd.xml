@@ -7,7 +7,7 @@
     android:alpha="100"
     android:fitsSystemWindows="true"
     android:visibility="visible"
-    tools:context=".displayd"
+    tools:context=".displayd.displayd"
     tools:visibility="visible">
 
     <Button
