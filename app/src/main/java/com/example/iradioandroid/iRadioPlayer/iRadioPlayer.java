@@ -180,10 +180,6 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
         // is actual stream a video or just audio/radio stream?
         if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START){
             stream_is_video = true;
-            return true;
-        }
-
-        if (what == 3) {
             Log.w(TAG, "3 - MEDIA_INFO_VIDEO_RENDERING_START");
             return true;
         }
