@@ -346,7 +346,7 @@ public class iRadioPlayer extends Service implements MediaPlayer.OnPreparedListe
                 reader.close();
                 Log.i(TAG, playlist.size() + " stations in playlist now ");
                 if (playlist.size() == 1) {
-                   Log.i(TAG,"just 1 station in playlist, add some default stations... ");
+                   Log.w(TAG,"just 1 station in playlist, add some default stations for radio dial simulations.... ");
                    playlist.add("http://live-icy.gss.dr.dk:8000/A/A04H.mp3");
                    playlist.add("http://live-icy.gss.dr.dk:8000/A/A05H.mp3");      
                 }
