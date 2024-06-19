@@ -18,7 +18,7 @@ Neben dem Medienplayer als Hintergrundprozess (iRadioPlayer) haben wir verschied
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
-Im Ordner "drawable" befinden sich alle genutzten Bildressourcen (PNGs mit Alphakanal), für die als Beispiel hinzugefügten Skalensimulation. Änderungen und Hinzufügungen von Bilddateien sind analog der Beschreibung für iRadio-Skalensimulationen in Beitrag #127 hier https://radio-bastler.de/forum/showthread.php?tid=11484&pid=142892#pid142892 vorzunehmen.
+Im Ordner "drawable" befinden sich alle genutzten Bildressourcen (PNGs mit Alphakanal), für die als Beispiel hinzugefügten Skalensimulation. 
 
 Zentraler Startpunkt für die verschiedenen Dienste des iRadioAndroid ist die Datei iRadioStartup.java:
 
