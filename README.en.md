@@ -18,7 +18,7 @@ In addition to the media player as a background process (iRadioPlayer), we have 
 
 ![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
-The "drawable" folder contains all used image resources (PNGs with alpha channel) for the radio scale simulation added as an example. Changes and additions to image files should be made analogously to the description for iRadio scale simulations in post #127 here https://radio-bastler.de/forum/showthread.php?tid=11484&pid=142892#pid142892.
+The "drawable" folder contains all used image resources (PNGs with alpha channel) for the radio scale simulation added as an example. 
 
 The central starting point for the various iRadioAndroid services is the iRadioStartup.java file:
 
