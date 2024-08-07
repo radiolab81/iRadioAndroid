@@ -2,7 +2,7 @@
 
 An experimental software kit for building new radios or converting old radios into an Android-based internet radio.
 
-![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
+![sysoverview](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
 
 #### Supported systems
 
@@ -12,18 +12,18 @@ The devices usually do not need to be rooted!
 
 #### System design
 
-The design of the iRadioAndroid is based on the modular principle of the iRadio for Raspberry (https://github.com/BM45/iRadio) and the iRadioMini for ESP32 (https://github.com/BM45/iRadioMini).
+The design of the iRadioAndroid is based on the modular principle of the iRadio for Raspberry (https://github.com/radiolab81/iRadio) and the iRadioMini for ESP32 (https://github.com/radiolab81/iRadioMini).
 In addition to the media player as a background process (iRadioPlayer), we have various "processes" for visualization (displayd...) and controls via GPIOs (gpiod) which are connected via an OTG USB serial port. Sample firmware for controlling the iRadioAndroid from outside is in the “firmware” folder.
 
 
-![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
+![sysoverview](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
 The "drawable" folder contains all used image resources (PNGs with alpha channel) for the radio scale simulation added as an example. 
 
 The central starting point for the various iRadioAndroid services is the iRadioStartup.java file:
 
 
-![startup](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/startup.jpg)
+![startup](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/startup.jpg)
 
 Here, as in the rc.local file for the iRadio for Raspberry, all components (background services, UI such as radio scale simulation) of the iRadioAndroid are selected and started:
 
@@ -40,7 +40,7 @@ The current version 2023.1.1 Hedgehog is recommended by the developers. After do
 Calling
 
 
-`git clone https://github.com/BM45/iRadioAndroid/`
+`git clone https://github.com/radiolab81/iRadioAndroid/`
 
 
 from terminal / projects-folder will do the job.
@@ -54,7 +54,7 @@ Immediately after compiling the iRadio application, it is also installed on the 
 
 For performance reasons, it is recommended that all development work not be carried out on the Android Emulator, but directly with a real smartphone/tablet! Scale simulations usually have to be adapted to the resolution and geometry of the device used anyway!
 
-![skalensim_cass](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
+![skalensim_cass](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
 
 
 Important: After the first start of iRadioAndroid, a small internal station list is still used!
@@ -83,24 +83,24 @@ For controlling iRadioAndroid via rotary pulse encoder and buttons, example code
 The communication and all commands are specified on the one hand in the firmware of the external processor that provides the physical GPIO interface and on the other hand in the example code for the gpiod.
 
 
-![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
+![gpiodcontrol](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
 
 
 Your own changes and extensions can be made freely and easily and are always welcome on your own radio.
 So using an OTG-USB cable is a two-way street! Just as data can be transported to the iRadioAndroid for control purposes, the iRadioAndroid can also send data to other radio peripherals. For example, numerical values ​​such as the field strength of the WiFi network can be transmitted over OTG-USB in order to create a simulation of historical display tubes (magic eyes).
 
-![me1](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me1.jpg)  
-![me2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me2.jpg)
+![me1](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/me1.jpg)  
+![me2](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/me2.jpg)
 
 The sample code for a gpiod is available in the file gpiodSerialOTG_magiceye_support.java. The firmware for both tube types shown is in the RP2040 firmware folder. This application is by no means limited to displays of the GC9A01 type. Thanks to the library used in the firmware (https://github.com/moononournation/Arduino_GFX/tree/master/src/display), a large number of displays can already be addressed and used for a wide variety of outputs on secondary screens.
 
-![devkit](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devkit.jpg)*A typical use case: the iRadioAndroid in a test environment for building an internet tube radio.*
+![devkit](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/devkit.jpg)*A typical use case: the iRadioAndroid in a test environment for building an internet tube radio.*
 
 Notice: USB devices have an identifier consisting of a manufacturer ID (vendor ID) and product ID.
-For some GPIO interfaces, IDs should already be included in iRadioAndroid in the file https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml.
+For some GPIO interfaces, IDs should already be included in iRadioAndroid in the file https://github.com/radiolab81/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml.
 
 
-![devicefilter](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
+![devicefilter](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
 
 If the GPIO interface developed by your own has a different identifier, please enter this identifier in the device_filter file before compiling the project.
 
@@ -126,23 +126,23 @@ In addition playback of an Internet radio program can be paused until the freque
 With iRadioAndroid you can receive numerous TV channels in addition to Internet radio!
 Within a radio scale simulation, switching between radio and TV picture can be done completely automatically! The streaming addresses of radio and television stations are saved in one playlist.
 
-![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*radio scale simulation - displaydRadioAndTV - with automatic radio/TV switching included as example code*
+![radioandtv](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*radio scale simulation - displaydRadioAndTV - with automatic radio/TV switching included as example code*
 
 #### WebSDR / KiwiSDR Support
 
-![websdr](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*radio scale simulation with WebSDR/KiwiSDR control*
+![websdr](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*radio scale simulation with WebSDR/KiwiSDR control*
 
 The iRadioAndroid offers support for controlling WebSDR and KiwiSDR. This means that the iRadioAndroid is ready to receive hundreds of SDR receivers worldwide. From time signal transmitters to Qatar-OSCAR 100.
 The included demo scale simulation shows the integration of web-based sdr-receivers into your own application.
 
-![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*management/updating of KiwiSDR servers within scale simulation*
+![websdr2](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*management/updating of KiwiSDR servers within scale simulation*
 
 #### Broadcasting internet radio program to old radios
 
 The iRadioAndroid can serve as a modulation source for old radios and relay Internet radio stations via RF.
 Using the inet2RF service, the radio stations in the station list are mapped into a selectable RF range (if supported by the transmitter module). The change of the transmission frequency and the internet radio program to be broadcast is carried out by measuring the frequency of the local oscillator of the radio to be supplied, taking into account the intermediate frequency using a superheterodyne principle.
 
-![inet2rf](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typical setup for mapping a playlist in the medium wave range of a radio*
+![inet2rf](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typical setup for mapping a playlist in the medium wave range of a radio*
 
 The Lo frequency measured on the radio, the transmitter frequency and modulation source are displayed in real time.
 
