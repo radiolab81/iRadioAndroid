@@ -1,9 +1,9 @@
 # iRadioAndroid  ( jetzt auch für Internet-TV und WebSDR/KiwiSDR )
-(for english version click here: https://github.com/BM45/iRadioAndroid/blob/main/README.en.md)
+(for english version click here: https://github.com/radiolab81/iRadioAndroid/blob/main/README.en.md)
 
 Ein experimenteller Softwarebaukasten für den Aufbau neuer Radios oder dem Umbau alter Radios zu einem Internetradio auf Android Basis.
 
-![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
+![sysoverview](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/systemoverview.jpg)
 
 #### Unterstützte Systeme
 
@@ -13,16 +13,16 @@ Die Geräte müssen in der Regel nicht gerootet sein!
 
 #### Systemdesign
 
-Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/BM45/iRadio) und dem iRadioMini für ESP32 (https://github.com/BM45/iRadioMini) aus.
+Das Design des iRadioAndroid richtet sich an dem Baukastenprinzip des iRadio für Raspberry (https://github.com/radiolab81/iRadio) und dem iRadioMini für ESP32 (https://github.com/radiolab81/iRadioMini) aus.
 Neben dem Medienplayer als Hintergrundprozess (iRadioPlayer) haben wir verschiedene "Prozesse" für die Visualisierung (displayd...) und die Steuerung über GPIOs (gpiod). Letztere werden über einen OTG-USB-Serial Port angebunden. Beispielfirmware zur Ansteuerung des iRadioAndroid von außen liegt im Ordner "firmware". 
 
-![sysoverview](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/folders.jpg)
+![sysoverview](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/folders.jpg)
 
 Im Ordner "drawable" befinden sich alle genutzten Bildressourcen (PNGs mit Alphakanal), für die als Beispiel hinzugefügten Skalensimulation. 
 
 Zentraler Startpunkt für die verschiedenen Dienste des iRadioAndroid ist die Datei iRadioStartup.java:
 
-![startup](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/startup.jpg)
+![startup](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/startup.jpg)
 
 Hier werden, wie in der Datei rc.local beim iRadio für Raspberry, sämtliche Komponenten (Hintergrunddienste, UI wie Skalensimulation) des iRadioAndroid ausgewählt und gestartet:
 
@@ -37,7 +37,7 @@ Die zur Zeit akutelle Version 2023.1.1 Hedgehog wird dafür von den Entwicklern 
 Aufruf von
 
 
-`git clone https://github.com/BM45/iRadioAndroid/`
+`git clone https://github.com/radiolab81/iRadioAndroid/`
 
 
 im Terminal aus dem Projekteverzeichnis heraus.
@@ -52,7 +52,7 @@ Direkt nach dem Compilieren der iRadio-Anwendung wird diese auch auf dem am PC a
 
 Es wird aus Leistungsgründen empfohlen, sämtliche Entwicklungsarbeiten nicht am AndroidEmulator, sondern direkt mit einem richtigen Smartphone/Tablet vorzunehmen! Skalensimulationen müssen in der Regel sowieso an die Auflösung und Geometrie des genutzen Endgerätes angepasst werden!
 
-![skalensim_cass](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
+![skalensim_cass](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/skalensim.jpg)
 
 
 Wichtig: Nach dem ersten Start vom iRadioAndroid wird noch eine kleine interne Senderliste verwendet!
@@ -80,23 +80,23 @@ Für die Ansteuerung von iRadioAndroid über Drehimpulsgeber und Taster ist im O
 
 Die Kommunikation und alle Befehle werden auf der einen Seite in der Firmware des extenern Prozessors, der die physikalische GPIO Schnittstelle bereitstellt, und auf der anderen Seite im Beispielcode für den gpiod festgelegt.
 
-![gpiodcontrol](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
+![gpiodcontrol](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/gpiodcommands.jpg)
 
 Hier sind eigene Änderungen und Erweiterungen beliebig und leicht möglich und im eigenen Radio jederzeit willkommen. So ist der Weg über ein OTG-USB Kabel keine Einbahnstraße! So wie Daten zum iRadioAndroid für Ansteuerungszwecke transportiert werden können, kann das iRadioAndroid auch Daten an weitere Radio-Peripherie darüber verschicken. Zum Beispiel können numerische Werte, wie die Empfangsfeldstärke des WiFi-Netzes übertragen werden, um damit eine Simulation von historischen Anzeigeröhren (Magische Augen) zu verwirklichen.
 
-![me1](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me1.jpg)  
-![me2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/me2.jpg)
+![me1](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/me1.jpg)  
+![me2](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/me2.jpg)
 
 Der Beispielcode eines gpiod liegt in der Datei gpiodSerialOTG_magiceye_support.java vor. Die Firmware für beide abgebildete Röhrentypen im RP2040-Firmware Ordner. 
 Diese Anwendung beschränkt sich dabei keineswegs auf Displays vom GC9A01-Typ. Durch die in der Firmware verwendete Bibliothek (https://github.com/moononournation/Arduino_GFX/tree/master/src/display) lässt sich bereits jetzt ein großer Teil von Displays ansprechen und für verschiedenste Ausgaben auf Sekundärbildschirmen benutzen.
 
-![devkit](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devkit.jpg)*Ein typischer Anwendungsfall: das iRadioAndroid in einer Testumgebung für den Aufbau eines Internetröhrenradios.*
+![devkit](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/devkit.jpg)*Ein typischer Anwendungsfall: das iRadioAndroid in einer Testumgebung für den Aufbau eines Internetröhrenradios.*
 
 Hinweis: 
 USB Geräte besitzen eine Kennung bestehend aus Hersteller-ID (Vendor-ID) und Product-ID mit denen sie sich am System anmelden.
-Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in der Datei https://github.com/BM45/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml eingepflegt. 
+Für einige GPIO-Interfaces sind sollte Kennungen bereits im iRadioAndroid in der Datei https://github.com/radiolab81/iRadioAndroid/blob/main/app/src/main/res/xml/device_filter.xml eingepflegt. 
 
-![devicefilter](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
+![devicefilter](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/devicefilter.jpg)
 
 Trägt Ihr entwickeltes GPIO-Interface eine davon abweichende Kennung, tragen Sie diese Kennung bitte vor dem Compilieren des Projektes in die Datei device_filter ein.
 
@@ -123,23 +123,23 @@ Zusätzlich kann bei Skalensimulationen die Wiedergabe eines Internetradioprogra
 Mit dem iRadioAndroid kann man neben Internetradio auch zahlreiche TV-Sender empfangen!
 Innerhalb einer Skalensimulation kann die Umschaltung zwischen Radioansicht und TV-Bild vollständig automatisch erfolgen! Die Streamingadressen von Radio und Fernsehsendern können in einer gemeinsamen Playlist gespeichert werden. 
 
-![radioandtv](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*Skalensimulation - displaydRadioAndTV - mit automatischer Radio/TV-Umschaltung als Beispielcode enthalten*
+![radioandtv](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/tvandradiosupport.jpg)*Skalensimulation - displaydRadioAndTV - mit automatischer Radio/TV-Umschaltung als Beispielcode enthalten*
 
 #### WebSDR / KiwiSDR Support
 
-![websdr](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*Skalensimulation - mit WebSDR/KiwiSDR Ansteuerung (als Beispielcode enthalten)*
+![websdr](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/websdrsupport.jpg)*Skalensimulation - mit WebSDR/KiwiSDR Ansteuerung (als Beispielcode enthalten)*
 
 Das iRadioAndroid bietet Unterstützung zur Ansteuerung von WebSDR und KiwiSDR. Damit ist das iRadioAndroid empfangsbereit für weltweit hunderte SDR-Empfänger. Vom Zeitzeichensender bis zu Qatar-OSCAR 100. 
 Die mitgelieferte Demoskalensimualtion zeigt die Einbindung der entfernten Empfänger in eine eigene Anwendung.
 
-![websdr2](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*Demo: Verwaltung/Aktualisierung von KiwiSDR Servern innerhalb der Skalensimulation*
+![websdr2](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/kiwidb.jpg)*Demo: Verwaltung/Aktualisierung von KiwiSDR Servern innerhalb der Skalensimulation*
 
 #### Aussendung des Internetradioprogramms an alte Radios
 
 Das iRadioAndroid kann als Modulationsquelle für alte Radios dienen und Internetradiosender über HF erneut ausspielen.
 Über den Service inet2RF werden die Radiostationen der Senderliste (Playlist.m3u) in einen wählbaren HF-Bereich (sofern vom Sendemodul unterstützt) abgebildet. Die Umschaltung der Sendefrequenz und des zu sendenden Internetradioprogramms erfolgt durch Messung der Frequenz des Lokaloszillators des zu versorgenden Radios unter Berücksichtigung der Zwischenfrequenz bei einem Superhetprinzip.
 
-![inet2rf](https://github.com/BM45/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typisches Setup für das Mapping einer Playlist in den Mittelwellenbereich eines Radios*
+![inet2rf](https://github.com/radiolab81/iRadioAndroid/blob/main/pics4www/inet2rf.jpg)*typisches Setup für das Mapping einer Playlist in den Mittelwellenbereich eines Radios*
 
 Die Darstellung der am Radio gemessenen Lo-Frequenz, der aktuell eingestellten Senderfrequenz und Modulationsquelle erfolgen in Echtzeit. 
 
