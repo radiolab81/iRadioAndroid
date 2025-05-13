@@ -151,7 +151,8 @@ public class KiwiDB {
                 Log.i(TAG,"try to download kiwi server db");
                 try {
                     // Your code goes here
-                    final String textSource = "http://kiwisdr.com/public/";
+                    //final String textSource = "http://kiwisdr.com/public/";
+                    final String textSource = "http://kiwisdr.com/.public/";  // new URL
                     URL textUrl;
                     try {
                         textUrl = new URL(textSource);
